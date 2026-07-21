@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,7 +34,7 @@
             <a href="#features" class="hover:text-brandOrange transition">Features</a>
             <a href="#mobility" class="hover:text-brandOrange transition">Coverage</a>
             <a href="#pricing" class="hover:text-brandOrange transition">Plans</a>
-            <a href="terms.html" class="hover:text-brandOrange transition">Terms of Service</a>
+            
         </div>
         <div class="flex items-center gap-6">
              <a href="https://wa.me/27836873270" class="flex items-center gap-2 text-green-500 font-bold text-[10px] uppercase tracking-widest hover:text-white transition">
@@ -58,26 +58,35 @@
                    <button class="w-fit px-8 py-4 bg-brandOrange text-white font-black uppercase text-xs tracking-widest hover:bg-white hover:text-brandBlack transition"
     onclick="redirectToStore()"
     class="bg-brandBlack text-white hover:bg-white hover:text-brandBlack transition">
-    get protected now
+    -> get protected now
 </button>
 </a>
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div class="bg-white/5 p-6 border border-white/10 rounded">
-                        <div class="text-3xl font-black text-brandOrange">6 min<span class="text-sm">±</span></div>
+                        <div class="text-3xl font-black text-brandOrange">
+    <span class="counter" data-target="6">0</span>
+    <span class="text-sm"> min±</span>
+</div>
                         <p class="text-[9px] uppercase tracking-widest font-bold mt-2 text-slate-500">Average Response Time</p>
                     </div>
                     <div class="bg-white/5 p-6 border border-white/10 rounded">
-                        <div class="text-3xl font-black text-white">5500+</div>
+                        <div class="text-3xl font-black text-white">
+    <span class="counter" data-target="5500">0</span>+
+</div>
                         <p class="text-[9px] uppercase tracking-widest font-bold mt-2 text-slate-500">Private Security Officers</p>
                     </div>
                     <div class="bg-white/5 p-6 border border-white/10 rounded">
-                        <div class="text-3xl font-black text-white">330+</div>
+                        <div class="text-3xl font-black text-white">
+    <span class="counter" data-target="330">0</span>+
+</div>
                         <p class="text-[9px] uppercase tracking-widest font-bold mt-2 text-slate-500">Security Company Partners</p>
                     </div>
                     <div class="bg-white/5 p-6 border border-white/10 rounded">
-                        <div class="text-3xl font-black text-brandOrange">2000+</div>
+                        <div class="text-3xl font-black text-brandOrange">
+    <span class="counter" data-target="2000">0</span>+
+</div>
                         <p class="text-[9px] uppercase tracking-widest font-bold mt-2 text-slate-500">Suburbs Covered</p>
                     </div>
                 </div>
@@ -111,56 +120,7 @@
             </div>
         </div>
     </section>
-
-    <section id="mobility" class="py-24 px-6 bg-slate-50 border-y border-slate-200">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
-            <div>
-                <h2 class="text-4xl font-black uppercase tracking-tighter mb-8 leading-tight">
-                    Coverage That <br><span class="text-brandOrange italic">Follows You.</span>
-                </h2>
-                <p class="text-brandGrey font-medium leading-relaxed mb-6">
-                    Traditional security systems protect your house and end at your driveway. Emerge24 protects your and your loved ones wherever you may be. Our network operates in every major city and 2,000+ suburbs nationwide.
-                </p>
-                <div class="bg-white p-8 border-l-8 border-brandOrange shadow-sm italic text-sm">
-                    "Scenario: Flying from Cape Town to Johannesburg? You're covered. From the moment you land, you are plugged into our local Private Emergency network in Gauteng. We follow your GPS, not your address."
-                </div>
-            </div>
-            <div class="grid grid-cols-1 gap-4">
-                <div class="bg-brandBlack text-white p-10">
-                    <div class="text-brandOrange font-black text-xs uppercase tracking-[0.3em] mb-2">Partner Network</div>
-                    <div class="text-5xl font-black italic">330+</div>
-                    <p class="text-slate-500 text-[10px] font-bold uppercase mt-2">Private Security companies. </p>
-                </div>
-                <div class="bg-white p-10 border border-slate-200">
-                    <div class="text-brandBlack font-black text-xs uppercase tracking-[0.3em] mb-2">Medical Reach</div>
-                    <div class="text-5xl font-black italic">500+</div>
-                    <p class="text-brandGrey text-[10px] font-bold uppercase mt-2">Specialized EMS Vehicles</p>
-                </div>
-            </div>
-        </div>
-    </section>
-<section class="px-6 py-16 bg-black">
-  <div class="max-w-6xl mx-auto">
-    
-    <h2 class="text-brandOrange text-3xl font-bold mb-6 uppercase tracking-widest">
-      Coverage Map
-    </h2>
-
-    <div class="rounded-2xl overflow-hidden border border-white/10">
-      
-      <iframe
-        src="https://docs.aura.services/hosted-coverage-map.html"
-        width="100%"
-        height="600"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy">
-      </iframe>
-
-    </div>
-  </div>
-</section>
- <section id="features" class="py-6 px-6 bg-white">
+     <section id="features" class="py-6 px-6 bg-white">
         <div class="max-w-6xl mx-auto">
             <div class="mb-4">
                 
@@ -203,15 +163,65 @@
         >
 
     </section>
-    <section id="pricing" class="py-4 px-6 bg-white">
+
+    <section id="mobility" class="py-24 px-6 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+            <div>
+                <h2 class="text-4xl font-black uppercase tracking-tighter mb-8 leading-tight">
+                    Coverage That <br><span class="text-brandOrange italic">Follows You.</span>
+                </h2>
+                <p class="text-brandGrey font-medium leading-relaxed mb-6">
+                    Traditional security systems protect your house and end at your driveway. Emerge24 protects your and your loved ones wherever you may be. Our network operates in every major city and 2,000+ suburbs nationwide.
+                </p>
+                <div class="bg-white p-8 border-l-8 border-brandOrange shadow-sm italic text-sm">
+                    "Scenario: Flying from Cape Town to Johannesburg? You're covered. From the moment you land, you are plugged into our local Private Emergency network in Gauteng. We follow your GPS, not your address."
+                </div>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="bg-brandBlack text-white p-10">
+                    <div class="text-brandOrange font-black text-xs uppercase tracking-[0.3em] mb-2">Partner Network</div>
+                    <div class="text-5xl font-black italic">330+</div>
+                    <p class="text-slate-500 text-[10px] font-bold uppercase mt-2">Private Security companies. </p>
+                </div>
+                <div class="bg-brandBlack text-white p-10">
+                    <div class="text-brandOrange font-black text-xs uppercase tracking-[0.3em] mb-2">Medical Reach</div>
+                    <div class="text-5xl font-black italic">500+</div>
+                    <p class="text-slate-500 text-[10px] font-bold uppercase mt-2">Specialized EMS Vehicles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="px-6 py-16 bg-black">
+  <div class="max-w-6xl mx-auto">
+    
+    <h2 class="text-brandOrange text-3xl font-bold mb-6 uppercase tracking-widest">
+      Coverage Map
+    </h2>
+
+    <div class="rounded-2xl overflow-hidden border border-white/10">
+      
+      <iframe
+        src="https://docs.aura.services/hosted-coverage-map.html"
+        width="100%"
+        height="600"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+
+    </div>
+  </div>
+</section>
+ 
+    <section id="pricing" class="py-24 px-6 bg-white">
         <div class="max-w-5xl mx-auto text-center">
             <h2 class="text-4xl font-black uppercase tracking-tighter mb-16">Our Plans </h2>
             
             <div class="grid md:grid-cols-2 gap-12 text-left">
                 <div class="p-12 bg-brandBlack text-white relative shadow-2xl">
-                    <h3 class="text-[10px] font-black uppercase tracking-[0.4em] text-brandOrange mb-6">Plan I: Individual Plan</h3>
+                    <h3 class="text-[10px] font-black uppercase tracking-[0.4em] text-brandOrange mb-6">Individual Plan</h3>
                     </h3>
-                    <div class="text-6xl font-black italic mb-8 text-white">R149<span class="text-sm font-bold not-italic text-brandGrey ml-2 uppercase">/mo</span></div>
+                    <div class="text-6xl font-black italic mb-8 text-white">R99<span class="text-sm font-bold not-italic text-brandGrey ml-2 uppercase">/mo</span></div>
                     
                     <div class="space-y-4 mb-12">
                         <div class="flex items-start gap-3">
@@ -253,8 +263,8 @@ function redirectToStore() {
 
                 <div class="p-12 bg-brandBlack text-white relative shadow-2xl">
                     <div class="absolute top-0 right-0 bg-brandOrange text-white px-6 py-2 text-[10px] font-black uppercase tracking-widest italic">Most Popular</div>
-                    <h3 class="text-[10px] font-black uppercase tracking-[0.4em] text-brandOrange mb-6">Plan II: Family Plan</h3>
-                    <div class="text-6xl font-black italic mb-8 text-white">R279<span class="text-sm font-bold not-italic text-brandGrey ml-2 uppercase">/mo</span></div>
+                    <h3 class="text-[10px] font-black uppercase tracking-[0.4em] text-brandOrange mb-6">Family Plan</h3>
+                    <div class="text-6xl font-black italic mb-8 text-white">R189<span class="text-sm font-bold not-italic text-brandGrey ml-2 uppercase">/mo</span></div>
                     
                     <div class="space-y-4 mb-12">
                         <div class="flex items-start gap-3">
@@ -298,7 +308,7 @@ function redirectToStore() {
     </section id="contact" class="py-24 px-6 bg-white border-t border-slate-200">
         <div class="max-w-4xl mx-auto text-center mt-20">
             <h2 class="text-3xl font-black uppercase tracking-tighter mb-4">Family Plus </h2>
-            <p class="text-brandGrey mb-10 text-[10px] font-bold uppercase tracking-[0.3em]">Add additional profiles to your family plan for R99/profile</p>
+            <p class="text-brandGrey mb-10 text-[10px] font-bold uppercase tracking-[0.3em]">Request for additional profiles </p>
             
             <button
     onclick="window.location.href='mailto:support@emerge24.co.za?subject=Family%20Plan%20Request&body=Hi%20Emerge24,%0A%0APlease%20assist%20with%20a%20family-plus%20plan.%0A%0ARegards'"
@@ -340,7 +350,10 @@ function redirectToStore() {
             Emerge24 connects individuals, families and businesses to third-party emergency
             response services across South Africa. Security, medical and fire
             responses are provided by accredited third-party partners and are subject to
-            coverage availability and applicable terms and conditions.
+            coverage availability and applicable coverage availability and applicable
+<a href="terms.html" class="underline hover:text-brandOrange transition">
+    Terms &amp; Conditions
+</a>.
         </p>
 
         <p class="text-slate-400 text-xs mt-6">
@@ -353,6 +366,27 @@ function redirectToStore() {
     </div>
 
 </footer>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".counter");
 
+    counters.forEach(counter => {
+        const target = parseInt(counter.dataset.target, 10);
+        let current = 0;
+        const increment = Math.max(1, Math.ceil(target / 100));
+
+        const timer = setInterval(() => {
+            current += increment;
+
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+
+            counter.textContent = current;
+        }, 20);
+    });
+});
+</script>
 </body>
 </html>
