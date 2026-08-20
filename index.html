@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,65 +28,64 @@
 </head>
 <body class="text-brandBlack">
 
-    <nav class="fixed w-full z-50 bg-brandBlack/95 text-white py-4 px-8 flex justify-between items-center border-b border-white/10 backdrop-blur-md">
-        <div class="font-black text-2xl tracking-tighter italic">EMERGE<span class="text-brandOrange">24</span></div>
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 bg-brandBlack/95 text-white py-3.5 px-4 md:px-8 flex justify-between items-center border-b border-white/10 backdrop-blur-md">
+        <div class="font-black text-xl md:text-2xl tracking-tighter italic">EMERGE<span class="text-brandOrange">24</span></div>
         <div class="hidden lg:flex gap-10 text-[10px] font-bold uppercase tracking-[0.2em]">
             <a href="#features" class="hover:text-brandOrange transition">Features</a>
             <a href="#mobility" class="hover:text-brandOrange transition">Coverage</a>
             <a href="#pricing" class="hover:text-brandOrange transition">Plans</a>
-            
+            <a href="#faq" class="hover:text-brandOrange transition">FAQ</a>
         </div>
         <div class="flex items-center gap-6">
              <a href="https://wa.me/27836873270" class="flex items-center gap-2 text-green-500 font-bold text-[10px] uppercase tracking-widest hover:text-white transition">
                 <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                 WhatsApp Support
              </a>
-             
+        </div>
     </nav>
 
-    <section class="hero-bg text-white pt-40 pb-24 px-6 border-b border-brandOrange/20">
+    <!-- HERO SECTION -->
+    <section class="hero-bg text-white pt-28 md:pt-40 pb-16 md:pb-24 px-4 md:px-6 border-b border-brandOrange/20">
         <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
                 <div>
-                    <h1 class="text-5xl md:text-7xl font-black mb-8 leading-none tracking-tighter uppercase">
-                        Faster than Panic.<br><span class="text-brandOrange italic">Your One Tap Emergency APP</span>
+                    <h1 class="text-3xl sm:text-5xl md:text-7xl font-black mb-6 md:mb-8 leading-tight md:leading-none tracking-tighter uppercase">
+                        Personal Panic <br><span class="text-brandOrange italic">Your One-Tap Emergency App</span>
                     </h1>
-                    <p class="text-slate-400 text-lg mb-10 max-w-lg font-medium leading-relaxed">
-                        South Africa’s most expansive private emergency response network, all in one app. Over 5,500+ security and medical responders nationwide, at your fingertips. 
+                    <p class="text-slate-400 text-sm md:text-lg mb-8 md:mb-10 max-w-lg font-medium leading-relaxed">
+                       You can’t predict an emergency. But you can prepare for one. Emerge24 gives you direct access to private assistance on demand when time matters most. 
                     </p>
                     <div class="flex gap-4">
-                   <button class="w-fit px-8 py-4 bg-brandOrange text-white font-black uppercase text-xs tracking-widest hover:bg-white hover:text-brandBlack transition"
-    onclick="redirectToStore()"
-    class="bg-brandBlack text-white hover:bg-white hover:text-brandBlack transition">
-    -> get protected now
-</button>
-</a>
+                        <button onclick="redirectToStore()" class="w-full sm:w-fit px-8 py-4 bg-brandOrange text-white font-black uppercase text-xs tracking-widest hover:bg-white hover:text-brandBlack transition text-center">
+                            Get protected now
+                        </button>
                     </div>
                 </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-white/5 p-6 border border-white/10 rounded">
-                        <div class="text-3xl font-black text-brandOrange">
-    <span class="counter" data-target="6">0</span>
-    <span class="text-sm"> min±</span>
-</div>
+                <div class="grid grid-cols-2 gap-3 md:gap-4">
+                    <div class="bg-white/5 p-4 md:p-6 border border-white/10 rounded">
+                        <div class="text-2xl sm:text-3xl font-black text-brandOrange">
+                            <span class="counter" data-target="6">0</span>
+                            <span class="text-xs sm:text-sm"> min±</span>
+                        </div>
                         <p class="text-[9px] uppercase tracking-widest font-bold mt-2 text-slate-500">Average Response Time</p>
                     </div>
-                    <div class="bg-white/5 p-6 border border-white/10 rounded">
-                        <div class="text-3xl font-black text-white">
-    <span class="counter" data-target="5500">0</span>+
-</div>
+                    <div class="bg-white/5 p-4 md:p-6 border border-white/10 rounded">
+                        <div class="text-2xl sm:text-3xl font-black text-white">
+                            <span class="counter" data-target="5500">0</span>+
+                        </div>
                         <p class="text-[9px] uppercase tracking-widest font-bold mt-2 text-slate-500">Private Security Officers</p>
                     </div>
-                    <div class="bg-white/5 p-6 border border-white/10 rounded">
-                        <div class="text-3xl font-black text-white">
-    <span class="counter" data-target="330">0</span>+
-</div>
+                    <div class="bg-white/5 p-4 md:p-6 border border-white/10 rounded">
+                        <div class="text-2xl sm:text-3xl font-black text-white">
+                            <span class="counter" data-target="330">0</span>+
+                        </div>
                         <p class="text-[9px] uppercase tracking-widest font-bold mt-2 text-slate-500">Security Company Partners</p>
                     </div>
-                    <div class="bg-white/5 p-6 border border-white/10 rounded">
-                        <div class="text-3xl font-black text-brandOrange">
-    <span class="counter" data-target="2000">0</span>+
-</div>
+                    <div class="bg-white/5 p-4 md:p-6 border border-white/10 rounded">
+                        <div class="text-2xl sm:text-3xl font-black text-brandOrange">
+                            <span class="counter" data-target="2000">0</span>+
+                        </div>
                         <p class="text-[9px] uppercase tracking-widest font-bold mt-2 text-slate-500">Suburbs Covered</p>
                     </div>
                 </div>
@@ -93,244 +93,300 @@
         </div>
     </section>
 
-    <section id="features" class="py-24 px-6 bg-white">
+    <!-- APP FEATURES -->
+    <section id="features" class="py-12 md:py-24 px-4 md:px-6 bg-white">
         <div class="max-w-6xl mx-auto">
-            <div class="mb-16">
-                <h2 class="text-3xl font-black uppercase tracking-tighter">OUR APP FEATURES</h2>
+            <div class="mb-10 md:mb-16">
+                <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tighter">OUR APP FEATURES</h2>
                 <div class="h-1 w-20 bg-brandOrange mt-4"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="feature-card p-8 border border-slate-100 shadow-sm">
-                    <h3 class="font-black text-lg uppercase mb-4 tracking-tighter">Private Security</h3>
-                    <p class="text-xs text-brandGrey leading-relaxed">Direct dispatch of the nearest PSIRA-registered armed response unit. GPS-integrated tracking bypasses traditional call-center delays.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <div class="feature-card p-6 md:p-8 border border-slate-100 shadow-sm">
+                    <h3 class="font-black text-base md:text-lg uppercase mb-3 md:mb-4 tracking-tighter">Private Security</h3>
+                    <p class="text-xs text-brandGrey leading-relaxed">Dispatch of the nearest Private armed response team. Live GPS tracking routes responders straight to you, bypassing call-center delays.</p>
                 </div>
-                <div class="feature-card p-8 border border-slate-100 shadow-sm">
-                    <h3 class="font-black text-lg uppercase mb-4 tracking-tighter">Medical Support</h3>
-                    <p class="text-xs text-brandGrey leading-relaxed">Access to 60+ medical response providers. Immediate deployment of Advanced Life Support (ALS) ambulances to your live location.</p>
+                <div class="feature-card p-6 md:p-8 border border-slate-100 shadow-sm">
+                    <h3 class="font-black text-base md:text-lg uppercase mb-3 md:mb-4 tracking-tighter">Medical Support</h3>
+                    <p class="text-xs text-brandGrey leading-relaxed">Access to 60+ medical response providers. Immediate deployment of the nearest Advanced Life Support (ALS) ambulance to your live location.</p>
                 </div>
-                <div class="feature-card p-8 border border-slate-100 shadow-sm">
-                    <h3 class="font-black text-lg uppercase mb-4 tracking-tighter">Fire & Rescue</h3>
-                    <p class="text-xs text-brandGrey leading-relaxed">Specialized containment units for residential and vehicle fires. Coordinated response to protect lives and high-value assets.</p>
+                <div class="feature-card p-6 md:p-8 border border-slate-100 shadow-sm">
+                    <h3 class="font-black text-base md:text-lg uppercase mb-3 md:mb-4 tracking-tighter">Fire & Rescue</h3>
+                    <p class="text-xs text-brandGrey leading-relaxed">Rapid dispatch of specialized containment units for residential and vehicle fires to safeguard lives and property.</p>
                 </div>
-                <div class="feature-card p-8 border border-slate-100 shadow-sm">
-                    <h3 class="font-black text-lg uppercase mb-4 tracking-tighter">Stand By Me</h3>
-                    <p class="text-xs text-brandGrey leading-relaxed">A proactive virtual escort. Our command center monitors your live GPS during periods of vulnerability until safety is confirmed by you.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-     <section id="features" class="py-6 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="mb-4">
-                
-                
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-    <!-- Security -->
-    <div class="feature-card rounded-lg">
-        <img
-            src="4.png"
-            alt="Private Security"
-            class="w-full h-[450px] object-cover"
-        >
-    </div>
-
-    <!-- Medical -->
-    <div class="feature-card rounded-lg">
-        <img
-            src="3.png"
-            alt="Medical Support"
-            class="w-full h-[450px] object-cover"
-        >
-    </div>
-
-    <!-- Fire -->
-    <div class="feature-card rounded-lg">
-        <img
-            src="2.png"
-            alt="Fire & Rescue"
-            class="w-full h-[450px] object-cover"
-        >
-    </div>
-
-    <!-- Stand By Me -->
-    <div class="feature-card rounded-lg">
-        <img
-            src="1.png"
-            alt="Stand By Me"
-            class="w-full h-[450px] object-cover"
-        >
-
-    </section>
-
-    <section id="mobility" class="py-24 px-6 bg-slate-50 border-y border-slate-200">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
-            <div>
-                <h2 class="text-4xl font-black uppercase tracking-tighter mb-8 leading-tight">
-                    Coverage That <br><span class="text-brandOrange italic">Follows You.</span>
-                </h2>
-                <p class="text-brandGrey font-medium leading-relaxed mb-6">
-                    Traditional security systems protect your house and end at your driveway. Emerge24 protects your and your loved ones wherever you may be. Our network operates in every major city and 2,000+ suburbs nationwide.
-                </p>
-                <div class="bg-white p-8 border-l-8 border-brandOrange shadow-sm italic text-sm">
-                    "Scenario: Flying from Cape Town to Johannesburg? You're covered. From the moment you land, you are plugged into our local Private Emergency network in Gauteng. We follow your GPS, not your address."
-                </div>
-            </div>
-            <div class="grid grid-cols-1 gap-4">
-                <div class="bg-brandBlack text-white p-10">
-                    <div class="text-brandOrange font-black text-xs uppercase tracking-[0.3em] mb-2">Partner Network</div>
-                    <div class="text-5xl font-black italic">330+</div>
-                    <p class="text-slate-500 text-[10px] font-bold uppercase mt-2">Private Security companies. </p>
-                </div>
-                <div class="bg-brandBlack text-white p-10">
-                    <div class="text-brandOrange font-black text-xs uppercase tracking-[0.3em] mb-2">Medical Reach</div>
-                    <div class="text-5xl font-black italic">500+</div>
-                    <p class="text-slate-500 text-[10px] font-bold uppercase mt-2">Specialized EMS Vehicles</p>
+                <div class="feature-card p-6 md:p-8 border border-slate-100 shadow-sm">
+                    <h3 class="font-black text-base md:text-lg uppercase mb-3 md:mb-4 tracking-tighter">Stand By Me</h3>
+                    <p class="text-xs text-brandGrey leading-relaxed">A stand-by service for our clients. Stuck on the highway late at night? Security Stands with you until safety is confirmed by you.</p>
                 </div>
             </div>
         </div>
     </section>
-<section class="px-6 py-16 bg-black">
+
+    <!-- Responsive Image Feature Section -->
+<section class="py-4 md:py-6 px-4 md:px-6 bg-white">
   <div class="max-w-6xl mx-auto">
-    
-    <h2 class="text-brandOrange text-3xl font-bold mb-6 uppercase tracking-widest">
-      Coverage Map
-    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-    <div class="rounded-2xl overflow-hidden border border-white/10">
-      
-      <iframe
-        src="https://docs.aura.services/hosted-coverage-map.html"
-        width="100%"
-        height="600"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy">
-      </iframe>
+      <!-- Security -->
+      <div>
+        <img src="4.png" alt="Private Security" class="w-full h-auto max-w-[320px] mx-auto object-contain block">
+      </div>
+
+      <!-- Medical -->
+      <div>
+        <img src="3.png" alt="Medical Support" class="w-full h-auto max-w-[320px] mx-auto object-contain block">
+      </div>
+
+      <!-- Fire -->
+      <div>
+        <img src="2.png" alt="Fire & Rescue" class="w-full h-auto max-w-[320px] mx-auto object-contain block">
+      </div>
+
+      <!-- Stand By Me -->
+      <div>
+        <img src="1.png" alt="Stand By Me" class="w-full h-auto max-w-[320px] mx-auto object-contain block">
+      </div>
 
     </div>
   </div>
 </section>
+    <!-- MOBILITY COVERAGE -->
+    <section id="mobility" class="py-12 md:py-24 px-4 md:px-6 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-20 items-center">
+            <div>
+                <h2 class="text-2xl sm:text-4xl font-black uppercase tracking-tighter mb-6 md:mb-8 leading-tight">
+                    Coverage That <br><span class="text-brandOrange italic">Follows You.</span>
+                </h2>
+                <p class="text-brandGrey text-xs md:text-base font-medium leading-relaxed mb-6">
+                    Traditional security systems protect your house and end at your driveway. Emerge24 protects you and your loved ones wherever you may be. Our network operates in every major city and 2,000+ suburbs nationwide.
+                </p>
+                <div class="bg-white p-5 md:p-8 border-l-8 border-brandOrange shadow-sm italic text-xs md:text-sm">
+                    Traveling from Cape Town to Johannesburg? You’re protected nationwide. From the moment you land, you automatically connect directly to our local emergency network in Gauteng. We protect you at your live location, not just your home address.
+                </div>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="bg-brandBlack text-white p-6 md:p-10">
+                    <div class="text-brandOrange font-black text-xs uppercase tracking-[0.3em] mb-2">Partner Network</div>
+                    <div class="text-3xl md:text-5xl font-black italic">330+</div>
+                    <p class="text-slate-500 text-[10px] font-bold uppercase mt-2">Private Security Companies.</p>
+                </div>
+                <div class="bg-brandBlack text-white p-6 md:p-10">
+                    <div class="text-brandOrange font-black text-xs uppercase tracking-[0.3em] mb-2">Medical Reach</div>
+                    <div class="text-3xl md:text-5xl font-black italic">500+</div>
+                    <p class="text-slate-500 text-[10px] font-bold uppercase mt-2">Specialized EMS Vehicles Nationwide</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- COVERAGE MAP -->
+    <section class="px-4 md:px-6 py-10 md:py-16 bg-black">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-brandOrange text-2xl md:text-3xl font-bold mb-6 uppercase tracking-widest">
+          Coverage Map
+        </h2>
+        <div class="rounded-2xl overflow-hidden border border-white/10">
+          <iframe
+            src="https://docs.aura.services/hosted-coverage-map.html?lat=-28.4793&lng=24.6727&zoom=6"
+            class="w-full h-[350px] md:h-[600px]"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </section>
  
-    <section id="pricing" class="py-24 px-6 bg-white">
+    <!-- PRICING -->
+    <section id="pricing" class="py-12 md:py-24 px-4 md:px-6 bg-white">
         <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-4xl font-black uppercase tracking-tighter mb-16">Our Plans </h2>
+            <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-10 md:mb-16">Our Plans</h2>
             
-            <div class="grid md:grid-cols-2 gap-12 text-left">
-                <div class="p-12 bg-brandBlack text-white relative shadow-2xl">
-                    <h3 class="text-[10px] font-black uppercase tracking-[0.4em] text-brandOrange mb-6">Individual Plan</h3>
-                    </h3>
-                    <div class="text-6xl font-black italic mb-8 text-white">R99<span class="text-sm font-bold not-italic text-brandGrey ml-2 uppercase">/mo</span></div>
+            <div class="grid md:grid-cols-2 gap-6 md:gap-12 text-left">
+                <!-- Individual Plan -->
+                <div class="p-6 md:p-12 bg-brandBlack text-white relative shadow-2xl">
+                    <h3 class="text-[10px] font-black uppercase tracking-[0.4em] text-brandOrange mb-4 md:mb-6">Individual Plan</h3>
+                    <div class="text-4xl md:text-6xl font-black italic mb-6 md:mb-8 text-white">R99<span class="text-xs md:text-sm font-bold not-italic text-brandGrey ml-2 uppercase">/mo</span></div>
                     
-                    <div class="space-y-4 mb-12">
+                    <div class="space-y-4 mb-8 md:mb-12">
                         <div class="flex items-start gap-3">
                             <span class="text-brandOrange font-black">•</span>
-                            <p class="text-xs font-bold uppercase tracking-widest leading-relaxed text-slate-400">One Individual Profile</p>
+                            <p class="text-xs font-bold uppercase tracking-widest leading-relaxed text-slate-400">Individual Profile</p>
                         </div>
                         <div class="flex items-start gap-3">
                             <span class="text-brandOrange font-black">•</span>
-                            <p class="text-xs font-bold uppercase tracking-widest leading-relaxed text-slate-400">Access to all APP Features</p>
+                            <p class="text-xs font-bold uppercase tracking-widest leading-relaxed text-slate-400">Access to all App Features</p>
                         </div>
                         <div class="flex items-start gap-3">
                             <span class="text-brandOrange font-black">•</span>
-                            <p class="text-xs font-bold uppercase tracking-widest leading-relaxed text-slate-400">±6 minute Average Security Response Time </p>
+                            <p class="text-xs font-bold uppercase tracking-widest leading-relaxed text-slate-400">Maximum coverage across SA</p>
                         </div>
                         <div class="flex items-start gap-3">
                             <span class="text-brandOrange font-black">•</span>
-                            <p class="text-xs font-bold uppercase tracking-widest leading-relaxed text-slate-400">Best Suited For Individuals</p>
+                            <p class="text-xs font-bold uppercase tracking-widest leading-relaxed text-slate-400">Designed For Individuals</p>
                         </div>
                     </div>
                     
-                    <button class="w-full py-4 bg-brandOrange text-white font-black uppercase text-xs tracking-widest hover:bg-white hover:text-brandBlack transition"
-    onclick="redirectToStore()"
-    class="bg-brandBlack text-white hover:bg-white hover:text-brandBlack transition">
-    Select Plan in-app
-</button>
-
-<script>
-function redirectToStore() {
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-
-    if (/android/i.test(ua)) {
-        window.location.href = "https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME";
-    } else {
-        window.location.href = "https://apps.apple.com/app/idYOUR_APP_ID";
-    }
-}
-</script>
+                    <button onclick="redirectToStore()" class="w-full py-4 bg-brandOrange text-white font-black uppercase text-xs tracking-widest hover:bg-white hover:text-brandBlack transition text-center">
+                        Select Plan in-app
+                    </button>
                 </div>
 
-                <div class="p-12 bg-brandBlack text-white relative shadow-2xl">
-                    <div class="absolute top-0 right-0 bg-brandOrange text-white px-6 py-2 text-[10px] font-black uppercase tracking-widest italic">Most Popular</div>
-                    <h3 class="text-[10px] font-black uppercase tracking-[0.4em] text-brandOrange mb-6">Family Plan</h3>
-                    <div class="text-6xl font-black italic mb-8 text-white">R189<span class="text-sm font-bold not-italic text-brandGrey ml-2 uppercase">/mo</span></div>
+                <!-- Family Plan -->
+                <div class="p-6 md:p-12 bg-brandBlack text-white relative shadow-2xl mt-4 md:mt-0">
+                    <div class="absolute top-0 right-0 bg-brandOrange text-white px-4 md:px-6 py-1.5 md:py-2 text-[9px] md:text-[10px] font-black uppercase tracking-widest italic">Most Popular</div>
+                    <h3 class="text-[10px] font-black uppercase tracking-[0.4em] text-brandOrange mb-4 md:mb-6">Family Plan</h3>
+                    <div class="text-4xl md:text-6xl font-black italic mb-6 md:mb-8 text-white">R189<span class="text-xs md:text-sm font-bold not-italic text-brandGrey ml-2 uppercase">/mo</span></div>
                     
-                    <div class="space-y-4 mb-12">
+                    <div class="space-y-4 mb-8 md:mb-12">
                         <div class="flex items-start gap-3">
                             <span class="text-brandOrange font-black">•</span>
                             <p class="text-xs font-bold uppercase tracking-widest leading-relaxed text-slate-400">Two (2) Fully Independent Profiles</p>
                         </div>
                         <div class="flex items-start gap-3">
                             <span class="text-brandOrange font-black">•</span>
-                            <p class="text-xs font-bold uppercase tracking-widest leading-relaxed text-slate-400">All APP Features Included</p>
+                            <p class="text-xs font-bold uppercase tracking-widest leading-relaxed text-slate-400">All App Features Included</p>
                         </div>
                         <div class="flex items-start gap-3">
                             <span class="text-brandOrange font-black">•</span>
-                            <p class="text-xs font-bold uppercase tracking-widest leading-relaxed text-slate-400">Best Suited for 2 or More Profiles</p>
+                            <p class="text-xs font-bold uppercase tracking-widest leading-relaxed text-slate-400">Designed for 2 or More Profiles</p>
                         </div>
                         <div class="flex items-start gap-3">
                             <span class="text-brandOrange font-black">•</span>
-                            <p class="text-xs font-bold uppercase tracking-widest leading-relaxed text-brandOrange italic">able to Add Multiple profiles at R99/profile</p>
+                            <p class="text-xs font-bold uppercase tracking-widest leading-relaxed text-brandOrange italic">Add additional profiles for R89/profile</p>
                         </div>
                     </div>
                     
-                    <button class="w-full py-4 bg-brandOrange text-white font-black uppercase text-xs tracking-widest hover:bg-white hover:text-brandBlack transition"
-    onclick="redirectToStore()"
-    class="bg-brandBlack text-white hover:bg-white hover:text-brandBlack transition">
-    Select Plan in-app
-</button>
-
-<script>
-function redirectToStore() {
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-
-    if (/android/i.test(ua)) {
-        window.location.href = "https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME";
-    } else {
-        window.location.href = "https://apps.apple.com/app/idYOUR_APP_ID";
-    }
-}
-</script>
+                    <button onclick="redirectToStore()" class="w-full py-4 bg-brandOrange text-white font-black uppercase text-xs tracking-widest hover:bg-white hover:text-brandBlack transition text-center">
+                        Select Plan in-app
+                    </button>
                 </div>
             </div>
         </div>
-    </section id="contact" class="py-24 px-6 bg-white border-t border-slate-200">
-        <div class="max-w-4xl mx-auto text-center mt-20">
-            <h2 class="text-3xl font-black uppercase tracking-tighter mb-4">Family Plus </h2>
-            <p class="text-brandGrey mb-10 text-[10px] font-bold uppercase tracking-[0.3em]">Request for additional profiles </p>
-            
-            <button
-    onclick="window.location.href='mailto:support@emerge24.co.za?subject=Family%20Plan%20Request&body=Hi%20Emerge24,%0A%0APlease%20assist%20with%20a%20family-plus%20plan.%0A%0ARegards'"
-    class="w-full max-w-md py-4 bg-brandOrange text-white font-black uppercase text-xs tracking-widest hover:bg-brandwhite transition">
-    Select option
-</button>
+    </section>
 
-            <div class="flex justify-center gap-10 mt-16">
-                
+    <!-- FREQUENTLY ASKED QUESTIONS SECTION -->
+    <section id="faq" class="py-12 md:py-28 px-4 md:px-6 bg-white border-t border-slate-200">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Section Header -->
+            <div class="mb-12 md:mb-20 text-center">
+                <div class="text-[10px] font-extrabold uppercase tracking-[0.4em] text-brandOrange mb-3">Support & Information</div>
+                <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight text-brandBlack">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-brandGrey text-xs font-semibold uppercase tracking-widest mt-4 max-w-md mx-auto">
+                    Everything you need to know about South Africa's premier emergency network.
+                </p>
+            </div>
+
+            <!-- Accordion List -->
+            <div class="border-t border-slate-200">
+
+                <!-- FAQ Item 1 -->
+                <div class="faq-item border-b border-slate-200 transition-colors duration-200">
+                    <button type="button" class="faq-toggle w-full py-5 md:py-8 text-left flex justify-between items-center group cursor-pointer">
+                        <div class="flex items-center gap-3 md:gap-6 pr-2">
+                            <span class="text-xs font-black text-brandOrange tracking-widest">01</span>
+                            <span class="font-extrabold uppercase text-xs md:text-base text-brandBlack group-hover:text-brandOrange transition-colors tracking-tight">
+                                How fast is the average security response time?
+                            </span>
+                        </div>
+                        <span class="faq-icon text-brandOrange text-xl font-light transition-transform duration-300 flex-shrink-0 ml-2">
+                            +
+                        </span>
+                    </button>
+                    <div class="faq-content hidden pb-6 md:pb-8 pl-6 md:pl-12 pr-4 text-xs md:text-sm text-brandGrey leading-relaxed font-normal">
+                        Our network boasts an average security response time of approximately 6 minutes nationwide. When an alert is triggered, our system dispatches the nearest available PSIRA-registered armed response unit or HPCSA-accredited medical team using real-time GPS positioning.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item border-b border-slate-200 transition-colors duration-200">
+                    <button type="button" class="faq-toggle w-full py-5 md:py-8 text-left flex justify-between items-center group cursor-pointer">
+                        <div class="flex items-center gap-3 md:gap-6 pr-2">
+                            <span class="text-xs font-black text-brandOrange tracking-widest">02</span>
+                            <span class="font-extrabold uppercase text-xs md:text-base text-brandBlack group-hover:text-brandOrange transition-colors tracking-tight">
+                                Does Emerge24 work outside of my home address?
+                            </span>
+                        </div>
+                        <span class="faq-icon text-brandOrange text-xl font-light transition-transform duration-300 flex-shrink-0 ml-2">
+                            +
+                        </span>
+                    </button>
+                    <div class="faq-content hidden pb-6 md:pb-8 pl-6 md:pl-12 pr-4 text-xs md:text-sm text-brandGrey leading-relaxed font-normal">
+                        Yes! Unlike traditional home security systems, Emerge24 is fully mobile. It connects to your smartphone's live GPS location—meaning whether you are commuting, traveling between Cape Town and Johannesburg, or out for a run, protection follows you wherever you go across 2,000+ suburbs nationwide.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item border-b border-slate-200 transition-colors duration-200">
+                    <button type="button" class="faq-toggle w-full py-5 md:py-8 text-left flex justify-between items-center group cursor-pointer">
+                        <div class="flex items-center gap-3 md:gap-6 pr-2">
+                            <span class="text-xs font-black text-brandOrange tracking-widest">03</span>
+                            <span class="font-extrabold uppercase text-xs md:text-base text-brandBlack group-hover:text-brandOrange transition-colors tracking-tight">
+                                Are the security officers and medical teams certified?
+                            </span>
+                        </div>
+                        <span class="faq-icon text-brandOrange text-xl font-light transition-transform duration-300 flex-shrink-0 ml-2">
+                            +
+                        </span>
+                    </button>
+                    <div class="faq-content hidden pb-6 md:pb-8 pl-6 md:pl-12 pr-4 text-xs md:text-sm text-brandGrey leading-relaxed font-normal">
+                        Absolutely. All security personnel in our network are PSIRA registered, and all medical responders are fully HPCSA accredited with Advanced Life Support (ALS) capabilities. We partner with over 330 leading private security and EMS providers in South Africa.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item border-b border-slate-200 transition-colors duration-200">
+                    <button type="button" class="faq-toggle w-full py-5 md:py-8 text-left flex justify-between items-center group cursor-pointer">
+                        <div class="flex items-center gap-3 md:gap-6 pr-2">
+                            <span class="text-xs font-black text-brandOrange tracking-widest">04</span>
+                            <span class="font-extrabold uppercase text-xs md:text-base text-brandBlack group-hover:text-brandOrange transition-colors tracking-tight">
+                                How does the "Stand By Me" feature work?
+                            </span>
+                        </div>
+                        <span class="faq-icon text-brandOrange text-xl font-light transition-transform duration-300 flex-shrink-0 ml-2">
+                            +
+                        </span>
+                    </button>
+                    <div class="faq-content hidden pb-6 md:pb-8 pl-6 md:pl-12 pr-4 text-xs md:text-sm text-brandGrey leading-relaxed font-normal">
+                        "Stand By Me" is an assistance feature. A stand-by service for our clients. Stuck on the highway late at night? Security Stands with you until safety is confirmed by you. It offers support in vulnerable situations.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item border-b border-slate-200 transition-colors duration-200">
+                    <button type="button" class="faq-toggle w-full py-5 md:py-8 text-left flex justify-between items-center group cursor-pointer">
+                        <div class="flex items-center gap-3 md:gap-6 pr-2">
+                            <span class="text-xs font-black text-brandOrange tracking-widest">05</span>
+                            <span class="font-extrabold uppercase text-xs md:text-base text-brandBlack group-hover:text-brandOrange transition-colors tracking-tight">
+                                How do I add additional profiles to my Family Plan?
+                            </span>
+                        </div>
+                        <span class="faq-icon text-brandOrange text-xl font-light transition-transform duration-300 flex-shrink-0 ml-2">
+                            +
+                        </span>
+                    </button>
+                    <div class="faq-content hidden pb-6 md:pb-8 pl-6 md:pl-12 pr-4 text-xs md:text-sm text-brandGrey leading-relaxed font-normal">
+                        Our Family Plan covers two fully independent profiles for R189/mo. You can add additional independent family members by contacting <a href="mailto:support@emerge24.co.za" class=underline transition"> support@emerge24.co.za </a>, for R89/month per additional profile.
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
-    <section 
- id="contact" class="py-24 px-6 bg-white border-t border-slate-200">
+
+    <!-- CONTACT US -->
+    <section id="contact" class="py-12 md:py-24 px-4 md:px-6 bg-slate-50 border-t border-slate-200">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-black uppercase tracking-tighter mb-4">Contact us</h2>
-            <p class="text-brandGrey mb-10 text-[10px] font-bold uppercase tracking-[0.3em]">Individual and Business Support</p>
+            <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-4">Contact us</h2>
+            <p class="text-brandGrey mb-8 md:mb-10 text-[10px] font-bold uppercase tracking-[0.3em]">Individual and Business Support</p>
             
-            <a href="mailto:info@emerge24.co.za" class="text-3xl md:text-5xl font-black text-brandOrange hover:text-brandBlack transition underline decoration-4 underline-offset-8">
+            <a href="mailto:info@emerge24.co.za" class="text-xl sm:text-3xl md:text-5xl font-black text-brandOrange hover:text-brandBlack transition underline decoration-2 md:decoration-4 underline-offset-8 break-all">
                 info@emerge24.co.za
             </a>
 
-            <div class="flex justify-center gap-10 mt-16">
+            <div class="flex justify-center gap-6 md:gap-10 mt-12 md:mt-16">
                 <a href="#" class="text-[10px] font-black uppercase tracking-[0.3em] border-b-2 border-brandBlack pb-1 hover:text-brandOrange hover:border-brandOrange transition">Facebook</a>
                 <a href="#" class="text-[10px] font-black uppercase tracking-[0.3em] border-b-2 border-brandBlack pb-1 hover:text-brandOrange hover:border-brandOrange transition">Instagram</a>
                 <a href="https://wa.me/27836873270" class="text-[10px] font-black uppercase tracking-[0.3em] border-b-2 border-brandBlack pb-1 hover:text-brandOrange hover:border-brandOrange transition">WhatsApp</a>
@@ -338,54 +394,83 @@ function redirectToStore() {
         </div>
     </section>
 
-   <footer class="bg-brandBlack py-12 px-6 text-center">
+    <!-- FOOTER -->
+    <footer class="bg-brandBlack py-10 px-4 md:px-6 text-center">
+        <div class="font-extrabold text-xl text-white tracking-tighter italic mb-6 uppercase">
+            EMERGE<span class="text-brandOrange">24</span>
+        </div>
 
-    <div class="font-extrabold text-xl text-white tracking-tighter italic mb-6 uppercase">
-        EMERGE<span class="text-brandOrange">24</span>
-    </div>
+        <div class="max-w-2xl mx-auto">
+            <p class="text-slate-400 text-xs mt-6">
+                Emerge24 connects individuals, families and businesses to third-party emergency response services across South Africa. Security, medical and fire responses are provided by accredited third-party partners and are subject to coverage availability and applicable
+                <a href="terms.html" class="underline hover:text-brandOrange transition">Terms &amp; Conditions</a>.
+            </p>
 
-    <div class="max-w-2xl mx-auto">
-        <p class="text-slate-400 text-xs mt-6">
-            Emerge24 connects individuals, families and businesses to third-party emergency
-            response services across South Africa. Security, medical and fire
-            responses are provided by accredited third-party partners and are subject to
-            coverage availability and applicable coverage availability and applicable
-<a href="terms.html" class="underline hover:text-brandOrange transition">
-    Terms &amp; Conditions
-</a>.
-        </p>
+            <p class="text-slate-400 text-xs mt-6">
+                PSIRA Registered Responders • HPCSA Accredited Partners
+            </p>
 
-        <p class="text-slate-400 text-xs mt-6">
-            PSIRA Registered Responders • HPCSA Accredited Partners
-        </p>
+            <p class="text-slate-500 text-xs mt-3">
+                © 2026 Emerge24 (Pty) Ltd.
+            </p>
+        </div>
+    </footer>
 
-        <p class="text-slate-500 text-xs mt-3">
-            © 2026 Emerge24  (Pty) Ltd.
-        </p>
-    </div>
+    <!-- SCRIPTS -->
+    <script>
+    // Store Redirect
+    function redirectToStore() {
+        const ua = navigator.userAgent || navigator.vendor || window.opera;
+        if (/android/i.test(ua)) {
+            window.location.href = "https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME";
+        } else {
+            window.location.href = "https://apps.apple.com/app/idYOUR_APP_ID";
+        }
+    }
 
-</footer>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const counters = document.querySelectorAll(".counter");
+    // Counter Animation
+    document.addEventListener("DOMContentLoaded", () => {
+        const counters = document.querySelectorAll(".counter");
+        counters.forEach(counter => {
+            const target = parseInt(counter.dataset.target, 10);
+            let current = 0;
+            const increment = Math.max(1, Math.ceil(target / 100));
 
-    counters.forEach(counter => {
-        const target = parseInt(counter.dataset.target, 10);
-        let current = 0;
-        const increment = Math.max(1, Math.ceil(target / 100));
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                counter.textContent = current;
+            }, 20);
+        });
 
-        const timer = setInterval(() => {
-            current += increment;
+        // FAQ Accordion Toggle
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const item = toggle.closest('.faq-item');
+                const content = item.querySelector('.faq-content');
+                const icon = item.querySelector('.faq-icon');
+                const isOpen = !content.classList.contains('hidden');
 
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
+                // Close all FAQ items
+                document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+                document.querySelectorAll('.faq-icon').forEach(i => {
+                    i.textContent = '+';
+                    i.classList.remove('rotate-45');
+                });
 
-            counter.textContent = current;
-        }, 20);
+                // Open clicked item if closed
+                if (!isOpen) {
+                    content.classList.remove('hidden');
+                    icon.textContent = '✕';
+                    icon.classList.add('rotate-45');
+                }
+            });
+        });
     });
-});
-</script>
+    </script>
 </body>
 </html>
