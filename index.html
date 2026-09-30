@@ -58,7 +58,7 @@
                     </p>
                     <div class="flex gap-4">
                         <button onclick="redirectToStore()" class="w-full sm:w-fit px-8 py-4 bg-brandOrange text-white font-black uppercase text-xs tracking-widest hover:bg-white hover:text-brandBlack transition text-center">
-                            Get protected now
+                            Download now
                         </button>
                     </div>
                 </div>
@@ -735,7 +735,7 @@
     function redirectToStore() {
         const ua = navigator.userAgent || navigator.vendor || window.opera;
         if (/android/i.test(ua)) {
-            window.location.href = "https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME";
+            window.location.href = "https://play.google.com/store/apps/details?id=com.aura.panic.emerge24&hl=en_ZA";
         } else {
             window.location.href = "https://apps.apple.com/app/idYOUR_APP_ID";
         }
