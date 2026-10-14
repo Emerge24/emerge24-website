@@ -1,3350 +1,1150 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!doctype html>
+<html lang="en-ZA">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#0A0A0A">
-
-  <title>Emerge24 | South Africa's Premier Emergency Response App</title>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRLM6GGGX1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-CRLM6GGGX1');
-  </script>
-
-  <!-- Meta Pixel -->
-  <script>
-    !function(f,b,e,v,n,t,s){
-      if(f.fbq)return;
-      n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;
-      n.push=n;
-      n.loaded=!0;
-      n.version='2.0';
-      n.queue=[];
-      t=b.createElement(e);
-      t.async=!0;
-      t.src=v;
-      s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)
-    }(window, document, 'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-
-    fbq('init', '2029444777761748');
-    fbq('track', 'PageView');
-  </script>
-
-  <noscript>
-    <img
-      height="1"
-      width="1"
-      style="display:none"
-      src="https://www.facebook.com/tr?id=2029444777761748&ev=PageView&noscript=1"
-    />
-  </noscript>
-
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Font -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap"
-    rel="stylesheet"
-  >
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brandOrange: '#CC5500',
-            brandGrey: '#4A4A4A',
-            brandBlack: '#0A0A0A'
-          }
-        }
-      }
-    };
-  </script>
-
-  <style>
-
-    :root {
-      --orange: #CC5500;
-      --black: #0A0A0A;
-      --grey: #4A4A4A;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 78px;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #fff;
-      color: var(--black);
-      overflow-x: hidden;
-      -webkit-text-size-adjust: 100%;
-      text-rendering: optimizeLegibility;
-    }
-
-    img,
-    iframe {
-      max-width: 100%;
-    }
-
-    a,
-    button {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero-bg {
-      background:
-        radial-gradient(
-          circle at 85% 8%,
-          rgba(204,85,0,.20),
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at 10% 80%,
-          rgba(255,255,255,.05),
-          transparent 30%
-        ),
-        linear-gradient(
-          180deg,
-          #101010 0%,
-          #000 100%
-        );
-    }
-
-    /* =========================
-       FEATURE CARDS
-    ========================= */
-
-    .feature-card {
-      background: #fdfdfd;
-      transition:
-        transform .2s ease,
-        box-shadow .2s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(0,0,0,.08);
-    }
-
-    /* =========================
-       DESKTOP NAV
-    ========================= */
-
-    .mobile-menu-button {
-      display: none;
-    }
-
-    .mobile-menu {
-      display: none;
-    }
-
-    /* =========================
-       MOBILE NAV
-    ========================= */
-
-    @media (max-width: 1023px) {
-
-      .desktop-nav {
-        display: none !important;
-      }
-
-      .mobile-menu-button {
-        display: inline-flex;
-        width: 44px;
-        height: 44px;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid rgba(255,255,255,.16);
-        border-radius: 12px;
-        background: rgba(255,255,255,.04);
-        color: #fff;
-        cursor: pointer;
-      }
-
-      .mobile-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        padding: 8px 16px 16px;
-        background: rgba(10,10,10,.98);
-        border-top: 1px solid rgba(255,255,255,.08);
-        box-shadow: 0 18px 35px rgba(0,0,0,.25);
-        z-index: 70;
-      }
-
-      .mobile-menu.open {
-        display: block;
-      }
-
-      .mobile-menu a {
-        display: flex;
-        min-height: 48px;
-        align-items: center;
-        color: #fff;
-        text-decoration: none;
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: .18em;
-        text-transform: uppercase;
-        border-bottom: 1px solid rgba(255,255,255,.08);
-      }
-
-      .mobile-menu a:last-child {
-        border-bottom: 0;
-      }
-
-      .mobile-menu a:active {
-        color: var(--orange);
-      }
-
-      .menu-backdrop {
-        display: none;
-        position: fixed;
-        inset: 0;
-        z-index: 45;
-        background: rgba(0,0,0,.35);
-      }
-
-      .menu-backdrop.show {
-        display: block;
-      }
-
-      nav {
-        z-index: 80 !important;
-      }
-    }
-
-    /* =========================
-       PLANS
-    ========================= */
-
-    .plans-section {
-      width: 100%;
-      padding: 70px 20px 95px;
-      background: #fff;
-    }
-
-    .plans-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .plans-title {
-      text-align: center;
-      font-size: 38px;
-      font-weight: 900;
-      margin: 0 0 60px;
-      color: #080808;
-      letter-spacing: -1.5px;
-    }
-
-    .plans-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .plan-card {
-      position: relative;
-      background: #090909;
-      min-height: 470px;
-      padding: 48px;
-      color: #fff;
-      box-shadow: 0 18px 35px rgba(0,0,0,.18);
-    }
-
-    .plan-content {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .plan-type {
-      display: block;
-      margin-bottom: 25px;
-      color: #d9562f;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 4px;
-    }
-
-    .plan-price {
-      color: #fff;
-      font-size: 62px;
-      line-height: 1;
-      font-style: italic;
-      font-weight: 900;
-      margin-bottom: 34px;
-      letter-spacing: -2px;
-    }
-
-    .currency {
-      font-size: 42px;
-    }
-
-    .period {
-      font-size: 14px;
-      color: #6b6b6b;
-      font-style: normal;
-      font-weight: 800;
-      letter-spacing: 0;
-      margin-left: 3px;
-    }
-
-    .plan-features {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .plan-features li {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 25px;
-      color: #9ba9bd;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: .8px;
-      line-height: 1.5;
-    }
-
-    .plan-features li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #d9562f;
-      font-size: 18px;
-    }
-
-    .plan-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      min-height: 50px;
-      height: 50px;
-      margin-top: auto;
-      background: #d9562f;
-      color: #fff;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: .5px;
-      border-radius: 8px;
-      transition:
-        transform .2s ease,
-        background .2s ease;
-    }
-
-    .plan-button:hover {
-      background: #ed6739;
-      transform: translateY(-2px);
-    }
-
-    .popular-badge {
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 10px 24px;
-      background: #d9562f;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 900;
-      font-style: italic;
-      letter-spacing: .8px;
-    }
-
-    .family-plan {
-      border: 1px solid rgba(217,86,47,.12);
-    }
-
-    /* TABLET */
-
-    @media (max-width: 1000px) {
-
-      .plans-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .family-plan {
-        grid-column: 1 / -1;
-        max-width: 500px;
-        width: 100%;
-        margin: 0 auto;
-      }
-
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 700px) {
-
-      html {
-        scroll-padding-top: 72px;
-      }
-
-      /* HERO */
-
-      .hero-bg {
-        min-height: auto;
-      }
-
-      .hero-section-inner {
-        width: 100%;
-      }
-
-      .hero-title {
-        font-size: clamp(
-          2rem,
-          9vw,
-          3.2rem
-        ) !important;
-
-        line-height: .98 !important;
-        letter-spacing: -.055em !important;
-      }
-
-      .hero-description {
-        font-size: 14px !important;
-        line-height: 1.7 !important;
-      }
-
-      .hero-download {
-        width: 100%;
-        min-height: 52px;
-        border-radius: 14px;
-        font-size: 13px;
-        letter-spacing: .12em;
-        box-shadow: 0 10px 25px rgba(204,85,0,.24);
-      }
-
-      .hero-stats {
-        gap: 10px !important;
-      }
-
-      .hero-stats > div {
-        min-height: 108px;
-        padding: 15px !important;
-        border-radius: 14px;
-      }
-
-      .hero-stats .counter {
-        font-size: 1.6rem;
-      }
-
-      .hero-stats p {
-        font-size: 8px !important;
-        line-height: 1.4 !important;
-        letter-spacing: .11em !important;
-      }
-
-      /* FEATURES */
-
-      #features {
-        padding-top: 54px !important;
-        padding-bottom: 54px !important;
-      }
-
-      #features .feature-card {
-        padding: 20px !important;
-        border-radius: 16px;
-      }
-
-      #features .feature-card h3 {
-        font-size: 13px;
-        margin-bottom: 9px;
-      }
-
-      #features .feature-card p {
-        font-size: 12px;
-        line-height: 1.65;
-      }
-
-      /* FEATURE IMAGES */
-
-      .feature-images-grid {
-        grid-template-columns:
-          repeat(2, minmax(0,1fr))
-          !important;
-
-        gap: 10px !important;
-      }
-
-      .feature-images-grid img {
-        width: 100%;
-        max-width: none !important;
-        border-radius: 14px;
-      }
-
-      /* COVERAGE */
-
-      #mobility {
-        padding-top: 56px !important;
-        padding-bottom: 56px !important;
-      }
-
-      #mobility h2 {
-        font-size:
-          clamp(
-            1.9rem,
-            8vw,
-            2.5rem
-          );
-      }
-
-      #mobility .coverage-note {
-        padding: 18px !important;
-        font-size: 12px;
-        line-height: 1.7;
-        border-left-width: 5px;
-      }
-
-      #mobility .network-card {
-        padding: 20px !important;
-        border-radius: 14px;
-      }
-
-      /* COVERAGE MAP */
-
-      .map-wrap iframe {
-        height: 300px !important;
-        border-radius: 14px;
-      }
-
-      /* PLANS */
-
-      .plans-section {
-        padding: 52px 14px 88px !important;
-      }
-
-      .plans-title {
-        font-size:
-          clamp(
-            1.75rem,
-            8vw,
-            2.2rem
-          ) !important;
-
-        margin-bottom: 30px !important;
-      }
-
-      .plans-grid {
-        grid-template-columns: 1fr !important;
-        gap: 14px !important;
-      }
-
-      .family-plan {
-        grid-column: auto;
-        max-width: none;
-      }
-
-      .plan-card {
-        min-height: 0 !important;
-        padding:
-          28px 22px 22px !important;
-
-        border-radius: 16px;
-      }
-
-      .plan-type {
-        font-size: 10px;
-        letter-spacing: .22em;
-        margin-bottom: 14px;
-      }
-
-      .plan-price {
-        font-size:
-          clamp(
-            3rem,
-            16vw,
-            4rem
-          ) !important;
-
-        margin-bottom: 18px;
-      }
-
-      .currency {
-        font-size: .64em;
-      }
-
-      .period {
-        font-size: 11px;
-      }
-
-      .plan-features li {
-        margin-bottom: 13px;
-        font-size: 11px;
-        line-height: 1.55;
-      }
-
-      .plan-button {
-        height: 50px;
-        min-height: 50px;
-        margin-top: 20px;
-        border-radius: 11px;
-        font-size: 10px;
-        letter-spacing: .09em;
-      }
-
-      .popular-badge {
-        padding: 7px 13px;
-        font-size: 8px;
-        border-radius:
-          0 16px 0 12px;
-      }
-
-      /* FAQ */
-
-      #faq {
-        padding-top: 56px !important;
-        padding-bottom: 56px !important;
-      }
-
-      #faq .faq-toggle {
-        min-height: 62px;
-        padding: 16px 0;
-      }
-
-      #faq .faq-question {
-        font-size: 11px !important;
-        line-height: 1.45;
-      }
-
-      #faq .faq-content {
-        padding-left: 31px;
-        padding-right: 5px;
-        padding-bottom: 18px;
-        font-size: 12px;
-        line-height: 1.7;
-      }
-
-      /* CONTACT */
-
-      #contact {
-        padding-top: 54px !important;
-        padding-bottom: 54px !important;
-      }
-
-      #contact .contact-email {
-        font-size:
-          clamp(
-            1.25rem,
-            6vw,
-            2rem
-          ) !important;
-
-        line-height: 1.25;
-        overflow-wrap: anywhere;
-      }
-
-      #contact .social-links {
-        gap: 14px;
-        flex-wrap: wrap;
-      }
-
-      #contact .social-links a {
-        min-height: 42px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 9px;
-        letter-spacing: .18em;
-      }
-
-      /* FOOTER */
-
-      footer {
-        padding-bottom:
-          calc(
-            82px +
-            env(safe-area-inset-bottom)
-          ) !important;
-      }
-
-      footer p {
-        font-size: 10px !important;
-        line-height: 1.7;
-      }
-
-      /* STICKY MOBILE CTA */
-
-      .mobile-sticky-cta {
-        position: fixed;
-
-        left: 10px;
-        right: 10px;
-
-        bottom:
-          calc(
-            10px +
-            env(safe-area-inset-bottom)
-          );
-
-        z-index: 75;
-
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-
-        min-height: 54px;
-
-        padding: 10px 16px;
-
-        border-radius: 15px;
-
-        background:
-          rgba(
-            204,
-            85,
-            0,
-            .97
-          );
-
-        color: #fff;
-
-        text-decoration: none;
-
-        text-transform: uppercase;
-
-        letter-spacing: .1em;
-
-        font-size: 11px;
-
-        font-weight: 900;
-
-        box-shadow:
-          0 14px 30px
-          rgba(0,0,0,.28);
-
-        backdrop-filter: blur(10px);
-      }
-    }
-
-    /* SMALL PHONES */
-
-    @media (max-width: 380px) {
-
-      .hero-title {
-        font-size: 2rem !important;
-      }
-
-      .hero-stats > div {
-        min-height: 100px;
-        padding: 13px !important;
-      }
-
-      .hero-stats .counter {
-        font-size: 1.4rem;
-      }
-
-      .plan-card {
-        padding-left: 18px !important;
-        padding-right: 18px !important;
-      }
-
-      #faq .faq-question {
-        font-size: 10px !important;
-      }
-    }
-
-    /* ACCESSIBILITY */
-
-    @media (prefers-reduced-motion: reduce) {
-
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-        scroll-behavior: auto !important;
-      }
-
-    }
-
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111111">
+<meta name="description" content="Emerge24 connects South Africans to security, medical, fire and Stand By Me emergency assistance through one simple app.">
+<link id="site-favicon" rel="icon" type="image/webp">
+<title>Emerge24 | One tap. A safer next step.</title>
+
+<!-- GOOGLE ANALYTICS 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CRLM6GGGX1"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-CRLM6GGGX1');
+</script>
+
+<!-- META PIXEL -->
+<script>
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;
+n=f.fbq=function(){
+n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)
+};
+if(!f._fbq)f._fbq=n;
+n.push=n;
+n.loaded=true;
+n.version='2.0';
+n.queue=[];
+t=b.createElement(e);
+t.async=true;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s);
+}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init','2029444777761748');
+fbq('track','PageView');
+</script>
+
+<style>
+:root{
+  --black:#111;
+  --orange:#ff6a2b;
+  --orange2:#ff8248;
+  --paper:#f7f7f4;
+  --muted:#696969;
+  --line:#e6e4df;
+  --pale:#fff0e9;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:82px}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--black);
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+img{max-width:100%;display:block}
+section{padding:88px 0}
+.container{width:min(1160px,calc(100% - 40px));margin-inline:auto}
+h1,h2,h3,p{margin-top:0}
+h1,h2,h3{line-height:1.08;letter-spacing:-.045em}
+h1{font-size:clamp(2.7rem,5.7vw,5rem);margin:22px 0}
+h2{font-size:clamp(2.1rem,4.3vw,3.5rem);margin:16px 0}
+h3{font-size:1.2rem;margin-bottom:10px}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  color:var(--orange);
+  font-size:.72rem;
+  font-weight:850;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+}
+.eyebrow:before{content:"";width:21px;height:2px;background:currentColor}
+.lead{color:#c9c9c9;max-width:590px;font-size:clamp(1rem,1.4vw,1.15rem)}
+.section-intro{color:var(--muted);max-width:650px;font-size:1.02rem}
+.section-head{max-width:720px;margin-bottom:38px}
+.section-head.center{text-align:center;margin-inline:auto}
+.section-head.center .eyebrow{justify-content:center}
+.section-head.center .section-intro{margin-inline:auto}
+
+.btn{
+  min-height:50px;
+  padding:12px 21px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  border:1px solid transparent;
+  border-radius:999px;
+  font-size:.9rem;
+  font-weight:750;
+  line-height:1.3;
+  text-align:center;
+  cursor:pointer;
+  transition:transform .2s,background .2s;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--orange);color:#111}
+.btn-primary:hover{background:var(--orange2)}
+.btn-dark{background:#111;color:#fff}
+.btn-outline{color:white;border-color:#ffffff40;background:#ffffff08}
+
+/* HEADER AND TRANSPARENT LOGO */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(17,17,17,.96);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid #ffffff17;
+}
+.nav{
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  color:white;
+  font-size:1.18rem;
+  font-weight:900;
+  letter-spacing:-.04em;
+  flex-shrink:0;
+}
+.brand-mark{
+  width:39px;
+  height:43px;
+  flex:0 0 39px;
+  display:grid;
+  place-items:center;
+  background:transparent;
+}
+.brand-mark img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:transparent;
+}
+.brand-number{color:var(--orange)}
+.nav-links{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:clamp(12px,2vw,25px);
+  color:#ddd;
+  font-size:.84rem;
+  font-weight:650;
+}
+.nav-links a:not(.btn):hover{color:white}
+.nav-cta{min-height:43px;padding-inline:17px}
+.menu-toggle{
+  display:none;
+  width:44px;
+  height:44px;
+  flex:0 0 44px;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  color:white;
+  border:1px solid #ffffff40;
+  border-radius:12px;
+  cursor:pointer;
+}
+.menu-toggle svg{width:23px;height:23px}
+
+/* HERO */
+.hero{
+  position:relative;
+  overflow:hidden;
+  color:white;
+  background:#111;
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  width:650px;
+  height:650px;
+  right:-240px;
+  top:-330px;
+  border:1px solid #ff6a2b2b;
+  border-radius:50%;
+  box-shadow:0 0 0 80px #ff6a2b08,0 0 0 160px #ff6a2b05;
+  pointer-events:none;
+}
+.hero-grid{
+  min-height:580px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  align-items:center;
+  gap:35px;
+  padding-block:65px;
+  position:relative;
+}
+.hero-copy{position:relative;z-index:2}
+.hero h1 span{color:var(--orange)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}
+.hero-note{color:#a7a7a7;max-width:450px;font-size:.79rem}
+.hero-visual{
+  position:relative;
+  min-width:0;
+  min-height:430px;
+  display:grid;
+  place-items:center;
+  isolation:isolate;
+}
+.visual-glow{
+  position:absolute;
+  width:290px;
+  height:290px;
+  border-radius:50%;
+  background:#ff6a2b24;
+  filter:blur(45px);
+  z-index:-1;
+}
+.orbit{
+  position:absolute;
+  border:1px solid #ffffff19;
+  border-radius:50%;
+  transform:rotate(-22deg);
+}
+.orbit.one{width:430px;height:300px}
+.orbit.two{width:490px;height:350px}
+.map-card{
+  position:absolute;
+  width:min(410px,90%);
+  height:325px;
+  border:1px solid #ffffff22;
+  border-radius:26px;
+  overflow:hidden;
+  transform:rotate(-5deg);
+  background:#202b2d;
+  box-shadow:0 30px 70px #0007;
+}
+.map-bg{
+  position:absolute;
+  inset:0;
+  background-color:#202b2d;
+  background-image:
+    linear-gradient(35deg,transparent 46%,#ffffff0d 47%,#ffffff0d 49%,transparent 50%),
+    linear-gradient(125deg,transparent 34%,#ffffff0c 35%,#ffffff0c 37%,transparent 38%),
+    linear-gradient(90deg,transparent 49%,#ffffff0c 50%,transparent 51%),
+    linear-gradient(0deg,transparent 49%,#ffffff0c 50%,transparent 51%);
+  background-size:150px 120px,170px 140px,72px 68px,90px 83px;
+}
+.map-road{
+  position:absolute;
+  left:16%;
+  top:-8%;
+  width:80%;
+  height:125%;
+  border-left:12px solid #f0efde20;
+  border-right:5px solid #f0efde12;
+  border-radius:48% 10% 35% 22%;
+  transform:rotate(34deg);
+}
+.map-river{
+  position:absolute;
+  width:130%;
+  height:70px;
+  background:#3b889033;
+  left:-20%;
+  top:55%;
+  transform:rotate(-22deg);
+  border-radius:50%;
+}
+.map-route{
+  position:absolute;
+  left:34%;
+  top:40%;
+  width:44%;
+  height:29%;
+  border-top:3px dashed var(--orange);
+  border-right:3px dashed var(--orange);
+  border-radius:0 26px 0 0;
+}
+.pin{
+  position:absolute;
+  width:40px;
+  height:40px;
+  border-radius:50% 50% 50% 5px;
+  background:var(--orange);
+  transform:rotate(-45deg);
+  display:grid;
+  place-items:center;
+  color:#111;
+  font-weight:900;
+}
+.pin.user{left:25%;top:52%;width:31px;height:31px;background:white}
+.pin.unit{right:18%;top:21%}
+.map-label{
+  position:absolute;
+  color:#ddd;
+  font-size:.65rem;
+  opacity:.75;
+  font-weight:700;
+}
+.map-label.a{top:19%;left:15%}
+.map-label.b{top:73%;right:13%}
+.map-label.c{bottom:13%;left:23%}
+
+/* ACTUAL Emerge24 SCREENSHOT */
+.phone{
+  position:relative;
+  z-index:2;
+  width:194px;
+  height:390px;
+  padding:0;
+  overflow:hidden;
+  border:6px solid #333;
+  border-radius:32px;
+  background:white;
+  box-shadow:0 28px 65px #0009;
+  transform:rotate(5deg) translateX(25px);
+  flex:0 0 auto;
+}
+.phone-screen{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:25px;
+  object-fit:cover;
+  object-position:center;
+  background:white;
+}
+.floating-label{
+  position:absolute;
+  z-index:4;
+  padding:12px 14px;
+  color:white;
+  background:#202020ed;
+  border:1px solid #ffffff20;
+  border-radius:14px;
+  font-size:.8rem;
+  box-shadow:0 15px 35px #0005;
+}
+.floating-label small{display:block;color:#aaa;font-size:.65rem}
+.floating-label.top{top:26px;right:0}
+.floating-label.bottom{bottom:5px;left:0}
+
+/* NETWORK STATISTICS */
+.proof-strip{background:white;border-bottom:1px solid var(--line)}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);padding:26px 0}
+.proof-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:5px 23px;
+  border-right:1px solid var(--line);
+}
+.proof-item:first-child{padding-left:0}
+.proof-item:last-child{border:0}
+.proof-number{
+  font-size:clamp(1.8rem,3vw,2.5rem);
+  font-weight:900;
+  letter-spacing:-.07em;
+  line-height:1;
+  white-space:nowrap;
+}
+.proof-number span{color:var(--orange)}
+.proof-label{color:#656565;font-size:.78rem;line-height:1.4}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.feature-card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:25px 22px;
+  min-width:0;
+  min-height:250px;
+  transition:transform .2s,box-shadow .2s;
+}
+.feature-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px #0000000d}
+.feature-icon{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  background:var(--pale);
+  color:var(--orange);
+  font-size:1.45rem;
+  margin-bottom:22px;
+}
+.feature-index{
+  display:block;
+  color:#999;
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.1em;
+  margin-bottom:10px;
+}
+.feature-card p{color:var(--muted);font-size:.9rem;margin-bottom:0}
+
+/* HOW IT WORKS */
+.how-section{background:#eeede8}
+.how-grid{
+  display:grid;
+  grid-template-columns:.88fr 1.12fr;
+  gap:65px;
+  align-items:start;
+}
+.how-aside{position:sticky;top:110px}
+.how-aside .section-intro{margin-bottom:25px}
+.steps{border-top:1px solid #d6d4cd}
+.step{
+  display:grid;
+  grid-template-columns:48px minmax(0,1fr);
+  gap:16px;
+  padding:25px 0;
+  border-bottom:1px solid #d6d4cd;
+}
+.step-num{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border:1px solid #d4d1c9;
+  border-radius:50%;
+  font-weight:850;
+  color:#555;
+}
+.step p{color:var(--muted);font-size:.94rem;margin:0}
+
+/* COVERAGE */
+.coverage{padding:0;background:#111;color:white;overflow:hidden}
+.coverage-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+  padding-block:80px;
+}
+.coverage-copy p{color:#c0c0c0;font-size:1.02rem}
+.coverage-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}
+.coverage-art{
+  min-height:320px;
+  position:relative;
+  border:1px solid #ffffff19;
+  border-radius:28px;
+  overflow:hidden;
+  background:radial-gradient(circle at 60% 45%,#ff6a2b24,transparent 42%),#191919;
+}
+.coverage-art:before,.coverage-art:after{
+  content:"";
+  position:absolute;
+  border:1px solid #ffffff15;
+  border-radius:50%;
+  transform:rotate(-28deg);
+}
+.coverage-art:before{width:520px;height:220px;left:-20px;top:45px}
+.coverage-art:after{width:500px;height:300px;left:10px;top:10px}
+.sa-map{position:absolute;width:260px;height:260px;left:50%;top:46%;transform:translate(-50%,-50%)}
+.city-tag{
+  position:absolute;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 12px;
+  color:#eee;
+  border-radius:999px;
+  background:#242424;
+  border:1px solid #ffffff19;
+  font-size:.72rem;
+  font-weight:700;
+}
+.city-tag:before{content:"";width:7px;height:7px;background:var(--orange);border-radius:50%}
+.city-tag.cape{left:7%;bottom:20%}
+.city-tag.joburg{right:6%;top:22%}
+.city-tag.durban{right:5%;bottom:25%}
+.map-caption{position:absolute;bottom:13px;left:16px;right:16px;color:#aaa;font-size:.67rem}
+
+/* PLANS */
+.plans-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.plan-card{
+  position:relative;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:30px 26px;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  min-height:390px;
+}
+.plan-card.featured{
+  background:#111;
+  color:white;
+  border-color:#111;
+  transform:translateY(-8px);
+  box-shadow:0 24px 60px #00000016;
+}
+.popular-pill{
+  position:absolute;
+  top:-13px;
+  left:24px;
+  background:var(--orange);
+  color:#111;
+  border-radius:999px;
+  padding:7px 12px;
+  font-size:.65rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+.plan-name{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;font-weight:850;color:#777}
+.featured .plan-name{color:#ccc}
+.price{font-size:clamp(2.5rem,4vw,3.4rem);font-weight:900;letter-spacing:-.08em;line-height:1.1;margin:18px 0 8px}
+.price small{font-size:.8rem;font-weight:700;letter-spacing:0;color:#777}
+.featured .price small{color:#ccc}
+.plan-for{color:var(--muted);font-size:.9rem}
+.featured .plan-for{color:#ccc}
+.plan-rule{border:0;border-top:1px solid var(--line);width:100%;margin:8px 0 20px}
+.featured .plan-rule{border-color:#333}
+.plan-list{
+  list-style:none;
+  padding:0;
+  margin:0 0 25px;
+  display:grid;
+  gap:13px;
+  color:#4e4e4e;
+  font-size:.88rem;
+}
+.featured .plan-list{color:#e0e0e0}
+.plan-list li{display:flex;gap:9px;align-items:flex-start}
+.plan-list li:before{content:"✓";color:var(--orange);font-weight:900}
+.plan-card .btn{width:100%;margin-top:auto}
+.price-note{color:#777;text-align:center;font-size:.78rem;max-width:760px;margin:25px auto 0}
+
+/* FAQ */
+.faq-section{background:white}
+.faq-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:65px;align-items:start}
+.faq-aside p{color:var(--muted);max-width:340px}
+.faq-list{border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{
+  list-style:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:21px 0;
+  font-weight:750;
+  font-size:.95rem;
+}
+summary::-webkit-details-marker{display:none}
+.faq-plus{
+  width:30px;
+  height:30px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  flex:none;
+  color:var(--orange);
+}
+details[open] .faq-plus{background:var(--pale)}
+.faq-answer{color:var(--muted);font-size:.92rem;padding:0 30px 22px 0;line-height:1.7}
+
+/* DOWNLOAD CTA */
+.download-section{padding:0 0 85px;background:white}
+.download-card{
+  background:var(--orange);
+  border-radius:28px;
+  padding:48px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+  position:relative;
+  overflow:hidden;
+}
+.download-card:after{
+  content:"24";
+  position:absolute;
+  right:25%;
+  top:-90px;
+  font-size:21rem;
+  line-height:1;
+  font-weight:950;
+  color:#ffffff20;
+  pointer-events:none;
+}
+.download-copy{position:relative;z-index:1;max-width:620px}
+.download-copy .eyebrow{color:#47200f}
+.download-copy h2{font-size:clamp(2rem,4vw,3.2rem);margin:15px 0}
+.download-copy p{color:#512816;margin-bottom:0}
+.download-buttons{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px;min-width:215px}
+.download-buttons .btn{background:#111;color:white}
+
+/* FOOTER */
+footer{background:#111;color:white;padding:48px 0 24px}
+.footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:35px;padding-bottom:35px}
+.footer-brand{max-width:330px}
+.footer-brand p{color:#aaa;font-size:.86rem;margin-top:16px}
+.footer-links{display:flex;flex-wrap:wrap;gap:36px}
+.footer-col strong{display:block;color:#bbb;text-transform:uppercase;letter-spacing:.1em;font-size:.75rem;margin-bottom:15px}
+.footer-col a{display:block;color:#eee;font-size:.85rem;margin:10px 0}
+.footer-col a:hover{color:var(--orange)}
+.footer-bottom{border-top:1px solid #333;padding-top:20px;display:flex;justify-content:space-between;gap:20px;color:#999;font-size:.73rem}
+.footer-disclaimer{max-width:720px}
+
+/* SCROLL REVEAL */
+.reveal{opacity:1;transform:none}
+@media(prefers-reduced-motion:no-preference){
+  .js .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+  .js .reveal.is-visible{opacity:1;transform:translateY(0)}
+}
+
+/* TABLET */
+@media(max-width:1000px){
+  .hero-grid{grid-template-columns:1fr .85fr;gap:20px}
+  .hero h1{font-size:clamp(2.6rem,5.6vw,4rem)}
+  .features-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .how-grid,.faq-grid{gap:35px}
+  .coverage-inner{gap:28px}
+  .nav-links{gap:13px;font-size:.79rem}
+  .download-card{padding:38px}
+}
+
+/* MOBILE */
+@media(max-width:760px){
+  html{scroll-padding-top:72px}
+  .container{width:calc(100% - 32px)}
+  section{padding:66px 0}
+  .nav{min-height:68px}
+  .brand{font-size:1.08rem}
+  .brand-mark{width:35px;height:39px;flex-basis:35px}
+  .menu-toggle{display:flex}
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:68px;
+    left:0;
+    right:0;
+    padding:12px 20px 22px;
+    background:#151515;
+    border-bottom:1px solid #333;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    box-shadow:0 15px 25px #0003;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a:not(.btn){
+    display:flex;
+    align-items:center;
+    min-height:48px;
+    padding:11px 4px;
+    border-bottom:1px solid #ffffff12;
+    font-size:.9rem;
+  }
+  .nav-cta{margin-top:14px;width:100%}
+  .hero-grid{grid-template-columns:minmax(0,1fr);min-height:auto;gap:0;padding:52px 0 30px}
+  .hero h1{font-size:clamp(2.7rem,9.8vw,4.2rem);margin-top:18px}
+  .lead{font-size:1rem;line-height:1.7}
+  .hero-actions{margin:24px 0}
+  .hero-note{font-size:.78rem;line-height:1.6}
+  .hero-visual{width:100%;min-height:365px;margin:12px 0 0;overflow:hidden;transform:none}
+  .visual-glow{width:220px;height:220px}
+  .orbit.one{width:310px;height:245px}
+  .orbit.two{width:350px;height:280px}
+  .map-card{width:min(300px,85%);height:285px;left:50%;transform:translateX(-50%) rotate(-5deg)}
+  .phone{width:168px;height:344px;border-width:5px;border-radius:27px;transform:rotate(3deg)}
+  .phone-screen{border-radius:21px}
+  .floating-label{display:none}
+  .proof-grid{grid-template-columns:1fr;padding:8px 0}
+  .proof-item,.proof-item:first-child{padding:18px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .proof-item:last-child{border-bottom:0}
+  .proof-label{max-width:none}
+  .proof-number{min-width:110px}
+  .section-head{margin-bottom:28px}
+  h2{font-size:clamp(2rem,7.5vw,3rem)}
+  .features-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .feature-card{min-height:0;padding:19px 16px;border-radius:17px}
+  .feature-index{font-size:.61rem;letter-spacing:.07em}
+  .feature-icon{margin-bottom:18px;width:43px;height:43px}
+  .feature-card h3{font-size:1.1rem}
+  .feature-card p{font-size:.84rem;line-height:1.6}
+  .how-grid,.coverage-inner,.faq-grid{grid-template-columns:minmax(0,1fr);gap:30px}
+  .how-aside{position:static}
+  .step{grid-template-columns:42px minmax(0,1fr);gap:12px;padding:22px 0}
+  .step-num{width:36px;height:36px}
+  .step p{font-size:.9rem}
+  .coverage-inner{padding-block:62px}
+  .coverage-art{min-height:285px}
+  .sa-map{max-width:78%}
+  .city-tag{font-size:.67rem;padding:8px 10px}
+  .city-tag.cape{left:4%}
+  .city-tag.joburg{right:3%}
+  .city-tag.durban{right:2%}
+  .map-caption{font-size:.62rem}
+  .plans-grid{grid-template-columns:minmax(0,1fr);gap:22px;max-width:500px;margin:auto}
+  .plan-card{min-height:0;padding:28px 23px;border-radius:20px}
+  .plan-card.featured{transform:none;margin-top:8px}
+  .plan-card .btn{min-height:51px}
+  .price{font-size:3rem}
+  .faq-grid{gap:25px}
+  summary{font-size:.92rem;padding:18px 0}
+  .faq-answer{padding-right:5px;font-size:.88rem}
+  .download-section{padding-bottom:60px}
+  .download-card{padding:30px 23px;flex-direction:column;align-items:stretch;gap:25px;border-radius:22px}
+  .download-card:after{right:-15px;top:-35px;font-size:12rem}
+  .download-copy h2{font-size:clamp(2rem,7vw,2.7rem)}
+  .download-buttons{min-width:0;width:100%}
+  .download-buttons .btn{width:100%;min-height:52px;white-space:normal}
+  .footer-top{flex-direction:column;gap:28px}
+  .footer-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;width:100%}
+  .footer-bottom{flex-direction:column;gap:12px;line-height:1.6}
+}
+
+/* SMALL PHONES */
+@media(max-width:430px){
+  .container{width:calc(100% - 28px)}
+  .nav{gap:12px}
+  .brand{font-size:1rem;gap:8px}
+  .brand-mark{width:32px;height:36px;flex-basis:32px}
+  .hero-grid{padding-top:42px}
+  .hero h1{font-size:clamp(2.45rem,10.5vw,3.3rem)}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-actions .btn{width:100%}
+  .hero-visual{min-height:335px}
+  .map-card{width:85%;height:260px}
+  .phone{width:153px;height:315px}
+  .features-grid{grid-template-columns:1fr}
+  .feature-card{padding:22px}
+  .feature-card h3{font-size:1.18rem}
+  .city-tag{font-size:.62rem;padding:7px 9px}
+  .city-tag.cape{left:2%}
+  .city-tag.joburg{right:2%}
+  .city-tag.durban{right:2%}
+  .plan-card{padding:26px 20px}
+  .price{font-size:2.8rem}
+  .footer-links{gap:20px 16px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+<script>document.documentElement.classList.add('js');</script>
 </head>
 
-<body class="text-brandBlack">
+<body>
+<noscript>
+<img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=2029444777761748&amp;ev=PageView&amp;noscript=1">
+</noscript>
 
-  <!-- =========================
-       NAVIGATION
-  ========================= -->
-
-  <nav
-    class="
-      fixed
-      top-0
-      left-0
-      w-full
-      z-50
-      bg-brandBlack/95
-      text-white
-      py-3
-      px-4
-      md:px-8
-      flex
-      justify-between
-      items-center
-      border-b
-      border-white/10
-      backdrop-blur-md
-    "
-  >
-
-    <a
-      href="#top"
-      class="
-        font-black
-        text-xl
-        md:text-2xl
-        tracking-tighter
-        italic
-        text-white
-        no-underline
-      "
-    >
-      EMERGE<span class="text-brandOrange">24</span>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="#top" aria-label="Emerge24 home">
+      <span class="brand-mark"><img data-emerge24-logo alt="Emerge24 logo"></span>
+      <span>EMERGE<span class="brand-number">24</span></span>
     </a>
 
-    <!-- Desktop menu -->
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </svg>
+    </button>
 
-    <div
-      class="
-        desktop-nav
-        hidden
-        lg:flex
-        gap-10
-        text-[10px]
-        font-bold
-        uppercase
-        tracking-[0.2em]
-      "
-    >
+    <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#plans">Plans</a>
+      <a href="#faq">FAQs</a>
+      <a class="btn btn-primary nav-cta" href="#download">Download the app</a>
+    </nav>
+  </div>
+</header>
 
-      <a
-        href="#features"
-        class="hover:text-brandOrange transition"
-      >
-        Features
-      </a>
+<main id="top">
 
-      <a
-        href="#mobility"
-        class="hover:text-brandOrange transition"
-      >
-        Coverage
-      </a>
-
-      <a
-        href="#plans"
-        class="hover:text-brandOrange transition"
-      >
-        Plans
-      </a>
-
-      <a
-        href="#faq"
-        class="hover:text-brandOrange transition"
-      >
-        FAQ
-      </a>
-
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Personal safety, in your pocket</span>
+      <h1>When it matters most, make your next step <span>one tap.</span></h1>
+      <p class="lead">Emerge24 connects you to on-demand emergency assistance through one simple app. From private security to medical support, help starts with knowing where you are.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#download">Get Emerge24 →</a>
+        <a class="btn btn-outline" href="#how-it-works">See how it works</a>
+      </div>
+      <p class="hero-note">Designed for individuals and families across South Africa. Access 330+ Security Companies and 60+ Medical EMS providers.</p>
     </div>
 
-    <!-- Right side -->
+    <div class="hero-visual" aria-label="Emerge24 app preview">
+      <div class="visual-glow"></div>
+      <div class="orbit one"></div>
+      <div class="orbit two"></div>
 
-    <div class="flex items-center gap-3">
+      <div class="map-card" aria-hidden="true">
+        <div class="map-bg"></div>
+        <div class="map-road"></div>
+        <div class="map-river"></div>
+        <div class="map-route"></div>
+        <span class="map-label a">CITY CENTRE</span>
+        <span class="map-label b">MAIN ROAD</span>
+        <span class="map-label c">YOUR LOCATION</span>
+        <div class="pin user">•</div>
+        <div class="pin unit">+</div>
+      </div>
 
-      <a
-        href="#"
-        onclick="trackAndRedirect(); return false;"
-        class="
-          hidden
-          sm:inline-flex
-          items-center
-          justify-center
-          min-h-[44px]
-          px-5
-          py-2
-          bg-brandOrange
-          text-white
-          font-bold
-          uppercase
-          tracking-wider
-          rounded-xl
-          text-[10px]
-          hover:opacity-90
-          transition
-        "
-      >
-        Download
-      </a>
+      <div class="phone">
+        <img class="phone-screen" data-emerge24-screen alt="Emerge24 app showing a map, current location, Security and Medical buttons">
+      </div>
 
-      <!-- Mobile menu button -->
+      <div class="floating-label top"><small>Network reach</small><strong>Across South Africa</strong></div>
+      <div class="floating-label bottom"><strong>Security. Medical. More.</strong></div>
+    </div>
+  </div>
+</section>
 
-      <button
-        type="button"
-        id="mobileMenuButton"
-        class="mobile-menu-button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="mobileMenu"
-      >
+<div class="proof-strip">
+  <div class="container proof-grid">
+    <div class="proof-item">
+      <div class="proof-number">330<span>+</span></div>
+      <div class="proof-label">private security company partners</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-number">500<span>+</span></div>
+      <div class="proof-label">specialised EMS vehicles nationwide</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-number">2,000<span>+</span></div>
+      <div class="proof-label">suburbs covered across South Africa</div>
+    </div>
+  </div>
+</div>
 
-        <svg
-          id="menuIcon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-
-          <path d="M4 6h16M4 12h16M4 18h16"/>
-
-        </svg>
-
-      </button>
-
+<section id="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">The right kind of assistance</span>
+      <h2>One app. More ways to get support.</h2>
+      <p class="section-intro">Different situations call for different help. Emerge24 brings key emergency assistance options together in one simple place.</p>
     </div>
 
-    <!-- Mobile menu -->
+    <div class="features-grid">
+      <article class="feature-card reveal">
+        <span class="feature-index">01 / SECURITY</span>
+        <div class="feature-icon">◈</div>
+        <h3>Private security</h3>
+        <p>Access to 330+ Private Security companies. Instantly connect to the nearest available unit, routed straight to your live location</p>
+      </article>
+      <article class="feature-card reveal">
+        <span class="feature-index">02 / MEDICAL</span>
+        <div class="feature-icon">✚</div>
+        <h3>Medical support</h3>
+        <p>Access to 60+ medical response providers. Immediate deployment of the nearest Advanced Life Support (ALS) ambulance to your live location</p>
+      </article>
+      <article class="feature-card reveal">
+        <span class="feature-index">03 / FIRE &amp; RESCUE</span>
+        <div class="feature-icon">♨</div>
+        <h3>Fire &amp; rescue</h3>
+        <p>Fire and rescue services dispatched to your live location when needed</p>
+      </article>
+      <article class="feature-card reveal">
+        <span class="feature-index">04 / STAND BY ME</span>
+        <div class="feature-icon">◎</div>
+        <h3>Stand By Me</h3>
+        <p>A stand-by service for our clients. Stuck on the highway late at night? Security Stands with you until safety is confirmed by you.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-    <div
-      id="mobileMenu"
-      class="mobile-menu"
-      aria-hidden="true"
-    >
-
-      <a href="#features">
-        Features
-      </a>
-
-      <a href="#mobility">
-        Coverage
-      </a>
-
-      <a href="#plans">
-        Plans
-      </a>
-
-      <a href="#faq">
-        FAQ
-      </a>
-
-      <a href="#contact">
-        Contact
-      </a>
-
-      <a
-        href="#"
-        onclick="trackAndRedirect(); return false;"
-      >
-        Download Emerge24
-      </a>
-
+<section class="how-section" id="how-it-works">
+  <div class="container how-grid">
+    <div class="how-aside reveal">
+      <span class="eyebrow">Simple by design</span>
+      <h2>In an emergency, clarity matters.</h2>
+      <p class="section-intro">Emerge24 is designed to make requesting assistance simple and straightforward, bypassing any delay and making sure you receive rapid and reliable assistance. We understand emergency situations are complex, stressful and overwhelming, we take that out of your hands and give you clarity and peace of mind at a tap. </p>
+      <a class="btn btn-dark" href="#download">Get started →</a>
     </div>
 
-  </nav>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div><h3>Open the Emerge24 App</h3><p>Use the app to request the type of emergency assistance you need.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div><h3>Your live location is instantly shared</h3><p>No need to explain where you are, our service pins your live location and connects you to the nearest responder automatically</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div><h3>Responders Routed</h3><p>Responders are routed directly to our clients, while your responders location is shown on the Emerge24 App, ensuring you know where your responder is.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <div
-    id="menuBackdrop"
-    class="menu-backdrop"
-  ></div>
+<section class="coverage" id="coverage">
+  <div class="container coverage-inner">
+    <div class="coverage-copy reveal">
+      <span class="eyebrow">Where life happens</span>
+      <h2>Your safety shouldn't stop at your driveway.</h2>
+      <p>Emerge24 is designed for everyday South Africans—at home, on the road, at work or while travelling. Traveling from Cape Town to Johannesburg? You’re protected nationwide. From the moment you land, you automatically connect directly to our local emergency network in Gauteng without you needing to do anything. We protect you at your live location, not just your home address.</p>
+      <div class="coverage-actions">
+        <a class="btn btn-primary" href="https://docs.aura.services/hosted-coverage-map.html?lat=-28.4793&amp;lng=24.6727&amp;zoom=6" target="_blank" rel="noopener">Explore coverage map ↗</a>
+        <a class="btn btn-outline" href="#faq">Read FAQs</a>
+      </div>
+    </div>
 
+    <div class="coverage-art reveal" aria-label="Illustrative map of South Africa">
+      <svg class="sa-map" viewBox="0 0 280 280" fill="none" aria-hidden="true">
+        <path d="M60 31 88 42 109 30 130 42 157 40 177 58 203 69 221 94 211 119 228 141 214 160 205 184 184 206 167 234 141 247 124 227 105 217 95 193 77 177 62 157 45 138 43 115 30 95 39 72Z" fill="#242424" stroke="#ff6a2b" stroke-width="2.2"/>
+        <path d="M40 75 66 82 91 75 115 87 136 79 165 95 192 94 218 109M48 130 76 118 98 129 127 115 148 133 174 124 207 140M77 173 103 158 127 174 150 158 181 174 203 165M105 216 126 197 150 205 169 191" stroke="#4a4a4a" stroke-width="1.5"/>
+        <path d="M52 116Q101 158 144 116T207 91M82 189Q143 177 191 139" stroke="#ff6a2b" stroke-width="2" stroke-dasharray="3 7"/>
+        <circle cx="78" cy="181" r="7" fill="#ff6a2b"/>
+        <circle cx="181" cy="105" r="7" fill="#ff6a2b"/>
+        <circle cx="203" cy="163" r="7" fill="#ff6a2b"/>
+      </svg>
+      <div class="city-tag cape">Cape Town</div>
+      <div class="city-tag joburg">Johannesburg</div>
+      <div class="city-tag durban">Durban</div>
+      <div class="map-caption">Illustrative map only. Check the coverage map for service availability at your location.</div>
+    </div>
+  </div>
+</section>
 
-  <main id="top">
+<section id="plans">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Plans for real life</span>
+      <h2>Choose who you want to cover.</h2>
+      <p class="section-intro">Start with a single profile, share peace of mind with a partner, or cover more of your family.</p>
+    </div>
 
-    <!-- =========================
-         HERO SECTION
-    ========================= -->
+    <div class="plans-grid">
+      <article class="plan-card reveal">
+        <div class="plan-name">Individual</div>
+        <div class="price">R99 <small>/ month</small></div>
+        <p class="plan-for">For one person who wants support on the go.</p>
+        <hr class="plan-rule">
+        <ul class="plan-list"><li>One individual profile for one device</li><li>Access to app features</li><li>Coverage across South Africa</li></ul>
+        <a class="btn btn-dark" href="#download">Choose Individual</a>
+      </article>
 
-    <section
-      class="
-        hero-bg
-        text-white
-        pt-28
-        md:pt-40
-        pb-16
-        md:pb-24
-        px-4
-        md:px-6
-        border-b
-        border-brandOrange/20
-      "
-    >
+      <article class="plan-card featured reveal">
+        <span class="popular-pill">Most popular</span>
+        <div class="plan-name">Duo</div>
+        <div class="price">R179 <small>/ month</small></div>
+        <p class="plan-for">For two people who want their own profiles.</p>
+        <hr class="plan-rule">
+        <ul class="plan-list"><li>Two independent profiles on 2 seperate devices</li><li>All app features included</li><li>Coverage across South Africa</li></ul>
+        <a class="btn btn-primary" href="#download">Choose Duo</a>
+      </article>
 
-      <div
-        class="
-          hero-section-inner
-          max-w-6xl
-          mx-auto
-        "
-      >
+      <article class="plan-card reveal">
+        <div class="plan-name">Family</div>
+        <div class="price">R399 <small>/ month</small></div>
+        <p class="plan-for">For families who want to look out for one another.</p>
+        <hr class="plan-rule">
+        <ul class="plan-list"><li>Up to five independent profiles for 5 seperate devices</li><li>All app features included</li><li>Coverage across South Africa</li></ul>
+        <a class="btn btn-dark" href="#download">Choose Family</a>
+      </article>
+    </div>
 
-        <div
-          class="
-            grid
-            md:grid-cols-2
-            gap-10
-            md:gap-16
-            items-center
-          "
-        >
+    <p class="price-note">Business, Complex, Apartment and Corporate plans are available. Contact us to find out more.</p>
+  </div>
+</section>
 
-          <!-- Hero copy -->
+<section class="faq-section" id="faq">
+  <div class="container faq-grid">
+    <div class="faq-aside reveal">
+      <span class="eyebrow">Good to know</span>
+      <h2>Questions, answered.</h2>
+      <p>Learn how Emerge24 works. Your questions about safety, emergency assistance and peace of mind. </p>
+      <a href="mailto:info@emerge24.co.za" class="btn btn-dark">Contact our team</a>
+    </div>
 
-          <div>
+    <div class="faq-list reveal">
+      <details>
+        <summary>Can I test the App? <span class="faq-plus">+</span></summary>
+        <div class="faq-answer"><p>Yes! We encourage anyone interested in Emerge24 to use the free test we offer in app! Showing you how our rapid systems work! Simply select the test mode, select your preffered "panic" test button and our system does the rest.</p></div>
+      </details>
+      <details>
+        <summary>Can I use Emerge24 away from home? <span class="faq-plus">+</span></summary>
+        <div class="faq-answer"><p>Yes! Unlike traditional home security systems, Emerge24 is fully mobile. It connects to your smartphone's live GPS location—meaning whether you are commuting, traveling between Cape Town and Johannesburg, or out for a run, protection follows you wherever you go across 2,000+ suburbs nationwide.</p></div>
+      </details>
+      <details>
+        <summary>What type of assistance does Emerge24 provide?  <span class="faq-plus">+</span></summary>
+        <div class="faq-answer"><p>Private security, Medical EMS support, Fire and rescue, and Stand By Me.</p></div>
+      </details>
+      <details>
+        <summary>Why is Emerge24 specifically beneficial? <span class="faq-plus">+</span></summary>
+        <div class="faq-answer"><p>Emerge24 facilitates access to over 330 independent private security companies and over 60 Medical EMS providers. Why is this beneficial? This system allows our clients to get the best and most rapid support across South Africa on one mobile app. </p></div>
+      </details>
+      <details>
+        <summary>How does Stand By Me work? <span class="faq-plus">+</span></summary>
+        <div class="faq-answer"><p>“Stand By Me” is an assistance feature. A stand-by service for our clients. Stuck on the highway late at night? Security Stands with you until safety is confirmed by you. It offers support in vulnerable situations.</p></div>
+      </details>
+      <details>
+        <summary>How do i activate my account? <span class="faq-plus">+</span></summary>
+        <div class="faq-answer"><p>Account activation takes 2 mins in app. Once you select your plan, you proceed to a checkout page. Once you have purchased your plan you are automatically activated</p></div>
+      </details>
+    </div>
+  </div>
+</section>
 
-            <h1
-              class="
-                hero-title
-                text-3xl
-                sm:text-5xl
-                md:text-7xl
-                font-black
-                mb-6
-                md:mb-8
-                leading-tight
-                md:leading-none
-                tracking-tighter
-                uppercase
-              "
-            >
-
-              Personal Panic
-              <br>
-
-              <span
-                class="
-                  text-brandOrange
-                  italic
-                "
-              >
-                Your One-Tap Emergency App
-              </span>
-
-            </h1>
-
-
-            <p
-              class="
-                hero-description
-                text-slate-400
-                text-sm
-                md:text-lg
-                mb-8
-                md:mb-10
-                max-w-lg
-                font-medium
-                leading-relaxed
-              "
-            >
-              You can’t predict an emergency.
-              But you can prepare for one.
-              Emerge24 gives you direct access
-              to private assistance on demand
-              when time matters most.
-            </p>
-
-
-            <button
-              onclick="trackAndRedirect();"
-              class="
-                hero-download
-                w-full
-                sm:w-fit
-                px-8
-                py-3
-                bg-brandOrange
-                text-white
-                font-bold
-                uppercase
-                tracking-wider
-                rounded-xl
-                hover:opacity-90
-                transition
-              "
-            >
-              Download Now
-            </button>
-
-          </div>
-
-
-          <!-- Stats -->
-
-          <div
-            class="
-              hero-stats
-              grid
-              grid-cols-2
-              gap-3
-              md:gap-4
-            "
-          >
-
-            <!-- Stat 1 -->
-
-            <div
-              class="
-                bg-white/5
-                p-4
-                md:p-6
-                border
-                border-white/10
-                rounded
-              "
-            >
-
-              <div
-                class="
-                  text-2xl
-                  sm:text-3xl
-                  font-black
-                  text-brandOrange
-                "
-              >
-
-                <span
-                  class="counter"
-                  data-target="6"
-                >
-                  0
-                </span>
-
-                <span
-                  class="
-                    text-xs
-                    sm:text-sm
-                  "
-                >
-                  min±
-                </span>
-
-              </div>
-
-              <p
-                class="
-                  text-[9px]
-                  uppercase
-                  tracking-widest
-                  font-bold
-                  mt-2
-                  text-slate-500
-                "
-              >
-                Average Response Time
-              </p>
-
-            </div>
-
-
-            <!-- Stat 2 -->
-
-            <div
-              class="
-                bg-white/5
-                p-4
-                md:p-6
-                border
-                border-white/10
-                rounded
-              "
-            >
-
-              <div
-                class="
-                  text-2xl
-                  sm:text-3xl
-                  font-black
-                  text-white
-                "
-              >
-
-                <span
-                  class="counter"
-                  data-target="5500"
-                >
-                  0
-                </span>+
-
-              </div>
-
-              <p
-                class="
-                  text-[9px]
-                  uppercase
-                  tracking-widest
-                  font-bold
-                  mt-2
-                  text-slate-500
-                "
-              >
-                Private Security Officers
-              </p>
-
-            </div>
-
-
-            <!-- Stat 3 -->
-
-            <div
-              class="
-                bg-white/5
-                p-4
-                md:p-6
-                border
-                border-white/10
-                rounded
-              "
-            >
-
-              <div
-                class="
-                  text-2xl
-                  sm:text-3xl
-                  font-black
-                  text-white
-                "
-              >
-
-                <span
-                  class="counter"
-                  data-target="330"
-                >
-                  0
-                </span>+
-
-              </div>
-
-              <p
-                class="
-                  text-[9px]
-                  uppercase
-                  tracking-widest
-                  font-bold
-                  mt-2
-                  text-slate-500
-                "
-              >
-                Security Company Partners
-              </p>
-
-            </div>
-
-
-            <!-- Stat 4 -->
-
-            <div
-              class="
-                bg-white/5
-                p-4
-                md:p-6
-                border
-                border-white/10
-                rounded
-              "
-            >
-
-              <div
-                class="
-                  text-2xl
-                  sm:text-3xl
-                  font-black
-                  text-brandOrange
-                "
-              >
-
-                <span
-                  class="counter"
-                  data-target="2000"
-                >
-                  0
-                </span>+
-
-              </div>
-
-              <p
-                class="
-                  text-[9px]
-                  uppercase
-                  tracking-widest
-                  font-bold
-                  mt-2
-                  text-slate-500
-                "
-              >
-                Suburbs Covered
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
+<section class="download-section" id="download">
+  <div class="container">
+    <div class="download-card reveal">
+      <div class="download-copy">
+        <span class="eyebrow">Be ready before you need it</span>
+        <h2>Make space for peace of mind.</h2>
+        <p>Download Emerge24, choose the plan that suits you, and make sure your profile and location permissions are set up before an emergency happens.</p>
       </div>
 
-    </section>
-
-
-    <!-- =========================
-         APP FEATURES
-    ========================= -->
-
-    <section
-      id="features"
-      class="
-        py-12
-        md:py-24
-        px-4
-        md:px-6
-        bg-white
-      "
-    >
-
-      <div class="max-w-6xl mx-auto">
-
-        <div class="mb-10 md:mb-16">
-
-          <h2
-            class="
-              text-2xl
-              md:text-3xl
-              font-black
-              uppercase
-              tracking-tighter
-            "
-          >
-            OUR APP FEATURES
-          </h2>
-
-          <div
-            class="
-              h-1
-              w-20
-              bg-brandOrange
-              mt-4
-            "
-          ></div>
-
-        </div>
-
-
-        <div
-          class="
-            grid
-            grid-cols-1
-            sm:grid-cols-2
-            lg:grid-cols-4
-            gap-4
-            md:gap-6
-          "
-        >
-
-          <!-- Security -->
-
-          <div
-            class="
-              feature-card
-              p-6
-              md:p-8
-              border
-              border-slate-100
-              shadow-sm
-            "
-          >
-
-            <h3
-              class="
-                font-black
-                text-base
-                md:text-lg
-                uppercase
-                mb-3
-                md:mb-4
-                tracking-tighter
-              "
-            >
-              Private Security
-            </h3>
-
-            <p
-              class="
-                text-xs
-                text-brandGrey
-                leading-relaxed
-              "
-            >
-              Dispatch of the nearest Private
-              armed response team. Live GPS
-              tracking routes responders straight
-              to you, bypassing call-center delays.
-            </p>
-
-          </div>
-
-
-          <!-- Medical -->
-
-          <div
-            class="
-              feature-card
-              p-6
-              md:p-8
-              border
-              border-slate-100
-              shadow-sm
-            "
-          >
-
-            <h3
-              class="
-                font-black
-                text-base
-                md:text-lg
-                uppercase
-                mb-3
-                md:mb-4
-                tracking-tighter
-              "
-            >
-              Medical Support
-            </h3>
-
-            <p
-              class="
-                text-xs
-                text-brandGrey
-                leading-relaxed
-              "
-            >
-              Access to 60+ medical response
-              providers. Immediate deployment
-              of the nearest Advanced Life
-              Support (ALS) ambulance to your
-              live location.
-            </p>
-
-          </div>
-
-
-          <!-- Fire -->
-
-          <div
-            class="
-              feature-card
-              p-6
-              md:p-8
-              border
-              border-slate-100
-              shadow-sm
-            "
-          >
-
-            <h3
-              class="
-                font-black
-                text-base
-                md:text-lg
-                uppercase
-                mb-3
-                md:mb-4
-                tracking-tighter
-              "
-            >
-              Fire &amp; Rescue
-            </h3>
-
-            <p
-              class="
-                text-xs
-                text-brandGrey
-                leading-relaxed
-              "
-            >
-              Rapid dispatch of specialized
-              containment units for residential
-              and vehicle fires to safeguard
-              lives and property.
-            </p>
-
-          </div>
-
-
-          <!-- Stand By Me -->
-
-          <div
-            class="
-              feature-card
-              p-6
-              md:p-8
-              border
-              border-slate-100
-              shadow-sm
-            "
-          >
-
-            <h3
-              class="
-                font-black
-                text-base
-                md:text-lg
-                uppercase
-                mb-3
-                md:mb-4
-                tracking-tighter
-              "
-            >
-              Stand By Me
-            </h3>
-
-            <p
-              class="
-                text-xs
-                text-brandGrey
-                leading-relaxed
-              "
-            >
-              A stand-by service for our clients.
-              Stuck on the highway late at night?
-              Security Stands with you until
-              safety is confirmed by you.
-            </p>
-
-          </div>
-
-        </div>
-
+      <div class="download-buttons">
+        <a class="btn" href="https://apps.apple.com/za/app/emerge24/id6815227176" target="_blank" rel="noopener">Download on the App Store</a>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.aura.panic.emerge24" target="_blank" rel="noopener">Get it on Google Play</a>
       </div>
-
-    </section>
-
-
-    <!-- =========================
-         FEATURE IMAGES
-    ========================= -->
-
-    <section
-      class="
-        py-4
-        md:py-6
-        px-4
-        md:px-6
-        bg-white
-      "
-    >
-
-      <div class="max-w-6xl mx-auto">
-
-        <div
-          class="
-            feature-images-grid
-            grid
-            grid-cols-1
-            sm:grid-cols-2
-            lg:grid-cols-4
-            gap-6
-          "
-        >
-
-          <div>
-            <img
-              src="4.png"
-              alt="Private Security"
-              class="
-                w-full
-                h-auto
-                max-w-[320px]
-                mx-auto
-                object-contain
-                block
-              "
-            >
-          </div>
-
-          <div>
-            <img
-              src="3.png"
-              alt="Medical Support"
-              class="
-                w-full
-                h-auto
-                max-w-[320px]
-                mx-auto
-                object-contain
-                block
-              "
-            >
-          </div>
-
-          <div>
-            <img
-              src="2.png"
-              alt="Fire & Rescue"
-              class="
-                w-full
-                h-auto
-                max-w-[320px]
-                mx-auto
-                object-contain
-                block
-              "
-            >
-          </div>
-
-          <div>
-            <img
-              src="1.png"
-              alt="Stand By Me"
-              class="
-                w-full
-                h-auto
-                max-w-[320px]
-                mx-auto
-                object-contain
-                block
-              "
-            >
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         COVERAGE
-    ========================= -->
-
-    <section
-      id="mobility"
-      class="
-        py-12
-        md:py-24
-        px-4
-        md:px-6
-        bg-slate-50
-        border-y
-        border-slate-200
-      "
-    >
-
-      <div
-        class="
-          max-w-6xl
-          mx-auto
-          grid
-          md:grid-cols-2
-          gap-10
-          md:gap-20
-          items-center
-        "
-      >
-
-        <!-- Coverage copy -->
-
-        <div>
-
-          <h2
-            class="
-              text-2xl
-              sm:text-4xl
-              font-black
-              uppercase
-              tracking-tighter
-              mb-6
-              md:mb-8
-              leading-tight
-            "
-          >
-
-            Coverage That
-            <br>
-
-            <span
-              class="
-                text-brandOrange
-                italic
-              "
-            >
-              Follows You.
-            </span>
-
-          </h2>
-
-
-          <p
-            class="
-              text-brandGrey
-              text-xs
-              md:text-base
-              font-medium
-              leading-relaxed
-              mb-6
-            "
-          >
-            Traditional security systems protect
-            your house and end at your driveway.
-            Emerge24 protects you and your loved
-            ones wherever you may be. Our network
-            operates in every major city and 2,000+
-            suburbs nationwide.
-          </p>
-
-
-          <div
-            class="
-              coverage-note
-              bg-white
-              p-5
-              md:p-8
-              border-l-8
-              border-brandOrange
-              shadow-sm
-              italic
-              text-xs
-              md:text-sm
-            "
-          >
-            Traveling from Cape Town to
-            Johannesburg? You’re protected nationwide.
-            From the moment you land, you automatically
-            connect directly to our local emergency
-            network in Gauteng. We protect you at your
-            live location, not just your home address.
-          </div>
-
-        </div>
-
-
-        <!-- Network -->
-
-        <div class="grid grid-cols-1 gap-4">
-
-          <div
-            class="
-              network-card
-              bg-brandBlack
-              text-white
-              p-6
-              md:p-10
-            "
-          >
-
-            <div
-              class="
-                text-brandOrange
-                font-black
-                text-xs
-                uppercase
-                tracking-[0.3em]
-                mb-2
-              "
-            >
-              Partner Network
-            </div>
-
-            <div
-              class="
-                text-3xl
-                md:text-5xl
-                font-black
-                italic
-              "
-            >
-              330+
-            </div>
-
-            <p
-              class="
-                text-slate-500
-                text-[10px]
-                font-bold
-                uppercase
-                mt-2
-              "
-            >
-              Private Security Companies.
-            </p>
-
-          </div>
-
-
-          <div
-            class="
-              network-card
-              bg-brandBlack
-              text-white
-              p-6
-              md:p-10
-            "
-          >
-
-            <div
-              class="
-                text-brandOrange
-                font-black
-                text-xs
-                uppercase
-                tracking-[0.3em]
-                mb-2
-              "
-            >
-              Medical Reach
-            </div>
-
-            <div
-              class="
-                text-3xl
-                md:text-5xl
-                font-black
-                italic
-              "
-            >
-              500+
-            </div>
-
-            <p
-              class="
-                text-slate-500
-                text-[10px]
-                font-bold
-                uppercase
-                mt-2
-              "
-            >
-              Specialized EMS Vehicles Nationwide
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         COVERAGE MAP
-    ========================= -->
-
-    <section
-      class="
-        px-4
-        md:px-6
-        py-10
-        md:py-16
-        bg-black
-      "
-    >
-
-      <div class="max-w-6xl mx-auto">
-
-        <h2
-          class="
-            text-brandOrange
-            text-2xl
-            md:text-3xl
-            font-bold
-            mb-6
-            uppercase
-            tracking-widest
-          "
-        >
-          Coverage Map
-        </h2>
-
-        <div
-          class="
-            map-wrap
-            rounded-2xl
-            overflow-hidden
-            border
-            border-white/10
-          "
-        >
-
-          <iframe
-            src="https://docs.aura.services/hosted-coverage-map.html?lat=-28.4793&lng=24.6727&zoom=6"
-            class="
-              w-full
-              h-[350px]
-              md:h-[600px]
-            "
-            style="border:0;"
-            allowfullscreen
-            loading="lazy"
-            title="Emerge24 Coverage Map"
-          >
-          </iframe>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         PLANS
-    ========================= -->
-
-    <section
-      id="plans"
-      class="plans-section"
-    >
-
-      <div class="plans-container">
-
-        <h2 class="plans-title">
-          OUR PLANS
-        </h2>
-
-
-        <div class="plans-grid">
-
-          <!-- INDIVIDUAL -->
-
-          <div class="plan-card">
-
-            <div class="plan-content">
-
-              <span class="plan-type">
-                INDIVIDUAL PLAN
-              </span>
-
-
-              <div class="plan-price">
-
-                <span class="currency">
-                  R
-                </span>
-
-                99
-
-                <span class="period">
-                  /MO
-                </span>
-
-              </div>
-
-
-              <ul class="plan-features">
-
-                <li>
-                  INDIVIDUAL PROFILE
-                </li>
-
-                <li>
-                  ACCESS TO ALL APP FEATURES
-                </li>
-
-                <li>
-                  MAXIMUM COVERAGE ACROSS SA
-                </li>
-
-                <li>
-                  DESIGNED FOR INDIVIDUALS
-                </li>
-
-              </ul>
-
-
-              <a
-                href="#"
-                onclick="trackAndRedirect(); return false;"
-                class="plan-button"
-              >
-                SELECT PLAN IN-APP
-              </a>
-
-            </div>
-
-          </div>
-
-
-          <!-- DUO -->
-
-          <div
-            class="
-              plan-card
-              popular-plan
-            "
-          >
-
-            <div
-              class="popular-badge"
-            >
-              MOST POPULAR
-            </div>
-
-
-            <div class="plan-content">
-
-              <span class="plan-type">
-                DUO PLAN
-              </span>
-
-
-              <div class="plan-price">
-
-                <span class="currency">
-                  R
-                </span>
-
-                179
-
-                <span class="period">
-                  /MO
-                </span>
-
-              </div>
-
-
-              <ul class="plan-features">
-
-                <li>
-                  TWO (2) FULLY INDEPENDENT PROFILES
-                </li>
-
-                <li>
-                  ALL APP FEATURES INCLUDED
-                </li>
-
-                <li>
-                  DESIGNED FOR 2 PROFILES
-                </li>
-
-                <li>
-                  MAXIMUM COVERAGE ACROSS SA
-                </li>
-
-              </ul>
-
-
-              <a
-                href="#"
-                onclick="trackAndRedirect(); return false;"
-                class="plan-button"
-              >
-                SELECT PLAN IN-APP
-              </a>
-
-            </div>
-
-          </div>
-
-
-          <!-- FAMILY -->
-
-          <div
-            class="
-              plan-card
-              family-plan
-            "
-          >
-
-            <div class="plan-content">
-
-              <span class="plan-type">
-                FAMILY PLAN
-              </span>
-
-
-              <div class="plan-price">
-
-                <span class="currency">
-                  R
-                </span>
-
-                399
-
-                <span class="period">
-                  /MO
-                </span>
-
-              </div>
-
-
-              <ul class="plan-features">
-
-                <li>
-                  UP TO 5 FULLY INDEPENDENT PROFILES
-                </li>
-
-                <li>
-                  ALL APP FEATURES INCLUDED
-                </li>
-
-                <li>
-                  DESIGNED FOR FAMILIES
-                </li>
-
-                <li>
-                  MAXIMUM COVERAGE ACROSS SA
-                </li>
-
-              </ul>
-
-
-              <a
-                href="#"
-                onclick="trackAndRedirect(); return false;"
-                class="plan-button"
-              >
-                SELECT PLAN IN-APP
-              </a>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         FAQ
-    ========================= -->
-
-    <section
-      id="faq"
-      class="
-        py-12
-        md:py-28
-        px-4
-        md:px-6
-        bg-white
-        border-t
-        border-slate-200
-      "
-    >
-
-      <div class="max-w-4xl mx-auto">
-
-        <div
-          class="
-            mb-12
-            md:mb-20
-            text-center
-          "
-        >
-
-          <div
-            class="
-              text-[10px]
-              font-extrabold
-              uppercase
-              tracking-[0.4em]
-              text-brandOrange
-              mb-3
-            "
-          >
-            Support &amp; Information
-          </div>
-
-
-          <h2
-            class="
-              text-2xl
-              md:text-4xl
-              font-black
-              uppercase
-              tracking-tight
-              text-brandBlack
-            "
-          >
-            Frequently Asked Questions
-          </h2>
-
-
-          <p
-            class="
-              text-brandGrey
-              text-xs
-              font-semibold
-              uppercase
-              tracking-widest
-              mt-4
-              max-w-md
-              mx-auto
-            "
-          >
-            Everything you need to know about
-            South Africa's premier emergency network.
-          </p>
-
-        </div>
-
-
-        <div class="border-t border-slate-200">
-
-
-          <!-- FAQ 1 -->
-
-          <div class="faq-item border-b border-slate-200">
-
-            <button
-              type="button"
-              class="
-                faq-toggle
-                w-full
-                py-5
-                md:py-8
-                text-left
-                flex
-                justify-between
-                items-center
-                group
-              "
-            >
-
-              <div
-                class="
-                  flex
-                  items-center
-                  gap-3
-                  md:gap-6
-                  pr-2
-                "
-              >
-
-                <span
-                  class="
-                    text-xs
-                    font-black
-                    text-brandOrange
-                    tracking-widest
-                  "
-                >
-                  01
-                </span>
-
-                <span
-                  class="
-                    faq-question
-                    font-extrabold
-                    uppercase
-                    text-xs
-                    md:text-base
-                    text-brandBlack
-                    group-hover:text-brandOrange
-                    transition-colors
-                    tracking-tight
-                  "
-                >
-                  How fast is the average security response time?
-                </span>
-
-              </div>
-
-
-              <span
-                class="
-                  faq-icon
-                  text-brandOrange
-                  text-xl
-                  font-light
-                  flex-shrink-0
-                  ml-2
-                "
-              >
-                +
-              </span>
-
-            </button>
-
-
-            <div
-              class="
-                faq-content
-                hidden
-                pb-6
-                md:pb-8
-                pl-6
-                md:pl-12
-                pr-4
-                text-xs
-                md:text-sm
-                text-brandGrey
-                leading-relaxed
-              "
-            >
-              Our network boasts an average security
-              response time of approximately 6 minutes
-              nationwide. When an alert is triggered,
-              our system dispatches the nearest available
-              PSIRA-registered armed response unit or
-              HPCSA-accredited medical team using
-              real-time GPS positioning.
-            </div>
-
-          </div>
-
-
-          <!-- FAQ 2 -->
-
-          <div class="faq-item border-b border-slate-200">
-
-            <button
-              type="button"
-              class="
-                faq-toggle
-                w-full
-                py-5
-                md:py-8
-                text-left
-                flex
-                justify-between
-                items-center
-                group
-              "
-            >
-
-              <div
-                class="
-                  flex
-                  items-center
-                  gap-3
-                  md:gap-6
-                  pr-2
-                "
-              >
-
-                <span
-                  class="
-                    text-xs
-                    font-black
-                    text-brandOrange
-                    tracking-widest
-                  "
-                >
-                  02
-                </span>
-
-                <span
-                  class="
-                    faq-question
-                    font-extrabold
-                    uppercase
-                    text-xs
-                    md:text-base
-                    text-brandBlack
-                    group-hover:text-brandOrange
-                    transition-colors
-                    tracking-tight
-                  "
-                >
-                  Does Emerge24 work outside of my home address?
-                </span>
-
-              </div>
-
-
-              <span
-                class="
-                  faq-icon
-                  text-brandOrange
-                  text-xl
-                  font-light
-                  flex-shrink-0
-                  ml-2
-                "
-              >
-                +
-              </span>
-
-            </button>
-
-
-            <div
-              class="
-                faq-content
-                hidden
-                pb-6
-                md:pb-8
-                pl-6
-                md:pl-12
-                pr-4
-                text-xs
-                md:text-sm
-                text-brandGrey
-                leading-relaxed
-              "
-            >
-              Yes! Unlike traditional home security
-              systems, Emerge24 is fully mobile.
-              It connects to your smartphone's live
-              GPS location—meaning whether you are
-              commuting, traveling between Cape Town
-              and Johannesburg, or out for a run,
-              protection follows you wherever you go
-              across 2,000+ suburbs nationwide.
-            </div>
-
-          </div>
-
-
-          <!-- FAQ 3 -->
-
-          <div class="faq-item border-b border-slate-200">
-
-            <button
-              type="button"
-              class="
-                faq-toggle
-                w-full
-                py-5
-                md:py-8
-                text-left
-                flex
-                justify-between
-                items-center
-                group
-              "
-            >
-
-              <div
-                class="
-                  flex
-                  items-center
-                  gap-3
-                  md:gap-6
-                  pr-2
-                "
-              >
-
-                <span
-                  class="
-                    text-xs
-                    font-black
-                    text-brandOrange
-                    tracking-widest
-                  "
-                >
-                  03
-                </span>
-
-                <span
-                  class="
-                    faq-question
-                    font-extrabold
-                    uppercase
-                    text-xs
-                    md:text-base
-                    text-brandBlack
-                    group-hover:text-brandOrange
-                    transition-colors
-                    tracking-tight
-                  "
-                >
-                  Are the security officers and medical teams certified?
-                </span>
-
-              </div>
-
-
-              <span
-                class="
-                  faq-icon
-                  text-brandOrange
-                  text-xl
-                  font-light
-                  flex-shrink-0
-                  ml-2
-                "
-              >
-                +
-              </span>
-
-            </button>
-
-
-            <div
-              class="
-                faq-content
-                hidden
-                pb-6
-                md:pb-8
-                pl-6
-                md:pl-12
-                pr-4
-                text-xs
-                md:text-sm
-                text-brandGrey
-                leading-relaxed
-              "
-            >
-              Absolutely. All security personnel in
-              our network are PSIRA registered, and
-              all medical responders are fully HPCSA
-              accredited with Advanced Life Support
-              (ALS) capabilities. We partner with
-              over 330 leading private security and
-              EMS providers in South Africa.
-            </div>
-
-          </div>
-
-
-          <!-- FAQ 4 -->
-
-          <div class="faq-item border-b border-slate-200">
-
-            <button
-              type="button"
-              class="
-                faq-toggle
-                w-full
-                py-5
-                md:py-8
-                text-left
-                flex
-                justify-between
-                items-center
-                group
-              "
-            >
-
-              <div
-                class="
-                  flex
-                  items-center
-                  gap-3
-                  md:gap-6
-                  pr-2
-                "
-              >
-
-                <span
-                  class="
-                    text-xs
-                    font-black
-                    text-brandOrange
-                    tracking-widest
-                  "
-                >
-                  04
-                </span>
-
-                <span
-                  class="
-                    faq-question
-                    font-extrabold
-                    uppercase
-                    text-xs
-                    md:text-base
-                    text-brandBlack
-                    group-hover:text-brandOrange
-                    transition-colors
-                    tracking-tight
-                  "
-                >
-                  How does the “Stand By Me” feature work?
-                </span>
-
-              </div>
-
-
-              <span
-                class="
-                  faq-icon
-                  text-brandOrange
-                  text-xl
-                  font-light
-                  flex-shrink-0
-                  ml-2
-                "
-              >
-                +
-              </span>
-
-            </button>
-
-
-            <div
-              class="
-                faq-content
-                hidden
-                pb-6
-                md:pb-8
-                pl-6
-                md:pl-12
-                pr-4
-                text-xs
-                md:text-sm
-                text-brandGrey
-                leading-relaxed
-              "
-            >
-              “Stand By Me” is an assistance feature.
-              A stand-by service for our clients.
-              Stuck on the highway late at night?
-              Security Stands with you until safety
-              is confirmed by you. It offers support
-              in vulnerable situations.
-            </div>
-
-          </div>
-
-
-          <!-- FAQ 5 -->
-
-          <div class="faq-item border-b border-slate-200">
-
-            <button
-              type="button"
-              class="
-                faq-toggle
-                w-full
-                py-5
-                md:py-8
-                text-left
-                flex
-                justify-between
-                items-center
-                group
-              "
-            >
-
-              <div
-                class="
-                  flex
-                  items-center
-                  gap-3
-                  md:gap-6
-                  pr-2
-                "
-              >
-
-                <span
-                  class="
-                    text-xs
-                    font-black
-                    text-brandOrange
-                    tracking-widest
-                  "
-                >
-                  05
-                </span>
-
-                <span
-                  class="
-                    faq-question
-                    font-extrabold
-                    uppercase
-                    text-xs
-                    md:text-base
-                    text-brandBlack
-                    group-hover:text-brandOrange
-                    transition-colors
-                    tracking-tight
-                  "
-                >
-                  How do I add additional profiles to my Family Plan?
-                </span>
-
-              </div>
-
-
-              <span
-                class="
-                  faq-icon
-                  text-brandOrange
-                  text-xl
-                  font-light
-                  flex-shrink-0
-                  ml-2
-                "
-              >
-                +
-              </span>
-
-            </button>
-
-
-            <div
-              class="
-                faq-content
-                hidden
-                pb-6
-                md:pb-8
-                pl-6
-                md:pl-12
-                pr-4
-                text-xs
-                md:text-sm
-                text-brandGrey
-                leading-relaxed
-              "
-            >
-              Our Family Plan covers two fully
-              independent profiles for R189/mo.
-              You can add additional independent
-              family members by contacting
-              <a
-                href="mailto:support@emerge24.co.za"
-                class="underline"
-              >
-                support@emerge24.co.za
-              </a>,
-              for R89/month per additional profile.
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CONTACT
-    ========================= -->
-
-    <section
-      id="contact"
-      class="
-        py-12
-        md:py-24
-        px-4
-        md:px-6
-        bg-slate-50
-        border-t
-        border-slate-200
-      "
-    >
-
-      <div
-        class="
-          max-w-4xl
-          mx-auto
-          text-center
-        "
-      >
-
-        <h2
-          class="
-            text-2xl
-            md:text-3xl
-            font-black
-            uppercase
-            tracking-tighter
-            mb-4
-          "
-        >
-          Contact us
-        </h2>
-
-
-        <p
-          class="
-            text-brandGrey
-            mb-8
-            md:mb-10
-            text-[10px]
-            font-bold
-            uppercase
-            tracking-[0.3em]
-          "
-        >
-          Individual and Business Support
-        </p>
-
-
-        <a
-          href="mailto:info@emerge24.co.za"
-          class="
-            contact-email
-            text-xl
-            sm:text-3xl
-            md:text-5xl
-            font-black
-            text-brandOrange
-            hover:text-brandBlack
-            transition
-            underline
-            decoration-2
-            md:decoration-4
-            underline-offset-8
-            break-all
-          "
-        >
-          info@emerge24.co.za
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="Emerge24 home">
+          <span class="brand-mark"><img data-emerge24-logo alt="Emerge24 logo"></span>
+          <span>EMERGE<span class="brand-number">24</span></span>
         </a>
-
-
-        <div
-          class="
-            social-links
-            flex
-            justify-center
-            gap-6
-            md:gap-10
-            mt-12
-            md:mt-16
-          "
-        >
-
-          <a
-            href="#"
-            class="
-              text-[10px]
-              font-black
-              uppercase
-              tracking-[0.3em]
-              border-b-2
-              border-brandBlack
-              pb-1
-              hover:text-brandOrange
-              hover:border-brandOrange
-              transition
-            "
-          >
-            Facebook
-          </a>
-
-
-          <a
-            href="#"
-            class="
-              text-[10px]
-              font-black
-              uppercase
-              tracking-[0.3em]
-              border-b-2
-              border-brandBlack
-              pb-1
-              hover:text-brandOrange
-              hover:border-brandOrange
-              transition
-            "
-          >
-            Instagram
-          </a>
-
-
-          <a
-            href="https://wa.me/27836873270"
-            class="
-              text-[10px]
-              font-black
-              uppercase
-              tracking-[0.3em]
-              border-b-2
-              border-brandBlack
-              pb-1
-              hover:text-brandOrange
-              hover:border-brandOrange
-              transition
-            "
-          >
-            WhatsApp
-          </a>
-
-        </div>
-
+        <p>Personal emergency assistance, built around your location. One app to help you access security, medical and other support when it matters.</p>
       </div>
 
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
-  <footer
-    class="
-      bg-brandBlack
-      py-10
-      px-4
-      md:px-6
-      text-center
-    "
-  >
-
-    <div
-      class="
-        font-extrabold
-        text-xl
-        text-white
-        tracking-tighter
-        italic
-        mb-6
-        uppercase
-      "
-    >
-      EMERGE<span class="text-brandOrange">24</span>
+      <div class="footer-links">
+        <div class="footer-col"><strong>Explore</strong><a href="#features">Features</a><a href="#how-it-works">How it works</a><a href="#coverage">Coverage</a><a href="#plans">Plans</a><a href="#faq">FAQs</a></div>
+        <div class="footer-col"><strong>Get the app</strong><a href="https://apps.apple.com/za/app/emerge24/id6815227176" target="_blank" rel="noopener">App Store</a><a href="https://play.google.com/store/apps/details?id=com.aura.panic.emerge24" target="_blank" rel="noopener">Google Play</a><a href="https://docs.aura.services/hosted-coverage-map.html?lat=-28.4793&amp;lng=24.6727&amp;zoom=6" target="_blank" rel="noopener">Coverage map</a></div>
+        <div class="footer-col"><strong>Contact</strong><a href="mailto:info@emerge24.co.za">info@emerge24.co.za</a><a href="mailto:support@emerge24.co.za">support@emerge24.co.za</a><a href="https://emerge24.co.za/terms.html" target="_blank" rel="noopener">Terms of Service</a></div>
+      </div>
     </div>
 
-
-    <div class="max-w-2xl mx-auto">
-
-      <p
-        class="
-          text-slate-400
-          text-xs
-          mt-6
-        "
-      >
-        Emerge24 connects individuals, families
-        and businesses to third-party emergency
-        response services across South Africa.
-        Security, medical and fire responses are
-        provided by accredited third-party partners
-        and are subject to coverage availability
-        and applicable
-        <a
-          href="terms.html"
-          class="
-            underline
-            hover:text-brandOrange
-            transition
-          "
-        >
-          Terms &amp; Conditions
-        </a>.
-      </p>
-
-
-      <p
-        class="
-          text-slate-400
-          text-xs
-          mt-6
-        "
-      >
-        PSIRA Registered Responders •
-        HPCSA Accredited Partners
-      </p>
-
-
-      <p
-        class="
-          text-slate-500
-          text-xs
-          mt-3
-        "
-      >
-        © 2026 Emerge24 (Pty) Ltd.
-      </p>
-
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> Emerge24 (Pty) Ltd. All rights reserved.</div>
+      <div class="footer-disclaimer">Emerge24 facilitates access to third-party emergency response services. Availability varies by location. Response times are not guaranteed.</div>
     </div>
+  </div>
+</footer>
 
-  </footer>
+<script>
+/* EMBEDDED IMAGES
+   These data URLs contain your transparent shield logo and app screenshot.
+   They do not rely on separate image files or folder paths. */
 
+const emerge24Logo = 'data:image/webp;base64,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';
 
-  <!-- =========================
-       MOBILE STICKY CTA
-  ========================= -->
+const emerge24Screen = 'data:image/webp;base64,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';
 
-  <a
-    href="#"
-    onclick="trackAndRedirect(); return false;"
-    class="
-      mobile-sticky-cta
-      md:hidden
-    "
-    aria-label="Download Emerge24"
-  >
-    Download Emerge24
-  </a>
+document.querySelectorAll('[data-emerge24-logo]').forEach(img => {
+  img.src = emerge24Logo;
+});
 
+document.querySelectorAll('[data-emerge24-screen]').forEach(img => {
+  img.src = emerge24Screen;
+});
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
+document.getElementById('site-favicon').href = emerge24Logo;
 
-  <script>
+/* TRACK APP DOWNLOAD CLICKS */
+document.querySelectorAll(
+  'a[href*="apps.apple.com/za/app/emerge24"],' +
+  'a[href*="play.google.com/store/apps/details?id=com.aura.panic.emerge24"]'
+).forEach(link => {
+  link.addEventListener('click', () => {
+    const store = link.href.includes('apps.apple.com') ? 'app_store' : 'google_play';
 
-    /* =========================
-       STORE REDIRECT
-    ========================= */
-
-    function redirectToStore() {
-
-      const ua =
-        navigator.userAgent ||
-        navigator.vendor ||
-        window.opera ||
-        '';
-
-      if (/android/i.test(ua)) {
-
-        window.location.href =
-          'https://play.google.com/store/apps/details?id=com.aura.panic.emerge24&hl=en_ZA';
-
-      } else {
-
-        window.location.href =
-          'https://apps.apple.com/za/app/emerge24/id6815227176';
-
-      }
-
+    if (typeof fbq === 'function') {
+      fbq('trackCustom','DownloadNow',{store});
     }
 
-
-    /* =========================
-       TRACK DOWNLOAD
-    ========================= */
-
-    function trackAndRedirect() {
-
-      try {
-
-        if (typeof fbq === 'function') {
-
-          fbq(
-            'trackCustom',
-            'DownloadNow'
-          );
-
-        }
-
-      } catch (e) {}
-
-      redirectToStore();
-
+    if (typeof gtag === 'function') {
+      gtag('event','app_download_click',{
+        store,
+        link_url:link.href
+      });
     }
-
-
-    /* =========================
-       DOM READY
-    ========================= */
-
-    document.addEventListener(
-      'DOMContentLoaded',
-      () => {
-
-
-        /* =========================
-           MOBILE MENU
-        ========================= */
-
-        const menuButton =
-          document.getElementById(
-            'mobileMenuButton'
-          );
-
-        const menu =
-          document.getElementById(
-            'mobileMenu'
-          );
-
-        const backdrop =
-          document.getElementById(
-            'menuBackdrop'
-          );
-
-        const menuIcon =
-          document.getElementById(
-            'menuIcon'
-          );
-
-
-        function setMenu(open) {
-
-          if (!menuButton || !menu) {
-            return;
-          }
-
-
-          menu.classList.toggle(
-            'open',
-            open
-          );
-
-
-          backdrop?.classList.toggle(
-            'show',
-            open
-          );
-
-
-          menu.setAttribute(
-            'aria-hidden',
-            String(!open)
-          );
-
-
-          menuButton.setAttribute(
-            'aria-expanded',
-            String(open)
-          );
-
-
-          menuButton.setAttribute(
-            'aria-label',
-            open
-              ? 'Close navigation menu'
-              : 'Open navigation menu'
-          );
-
-
-          if (menuIcon) {
-
-            menuIcon.innerHTML =
-              open
-
-                ? '<path d="M6 6l12 12M18 6L6 18"/>'
-
-                : '<path d="M4 6h16M4 12h16M4 18h16"/>';
-
-          }
-
-
-          document.body.style.overflow =
-            open
-              ? 'hidden'
-              : '';
-
-        }
-
-
-        menuButton?.addEventListener(
-          'click',
-          () => {
-
-            setMenu(
-              !menu.classList.contains(
-                'open'
-              )
-            );
-
-          }
-        );
-
-
-        backdrop?.addEventListener(
-          'click',
-          () => setMenu(false)
-        );
-
-
-        menu
-          ?.querySelectorAll('a')
-          .forEach(
-            link => {
-
-              link.addEventListener(
-                'click',
-                () => setMenu(false)
-              );
-
-            }
-          );
-
-
-        window.addEventListener(
-          'resize',
-          () => {
-
-            if (
-              window.innerWidth >= 1024
-            ) {
-
-              setMenu(false);
-
-            }
-
-          }
-        );
-
-
-        /* =========================
-           COUNTER ANIMATION
-        ========================= */
-
-        const counters =
-          document.querySelectorAll(
-            '.counter'
-          );
-
-
-        counters.forEach(
-          counter => {
-
-            const target =
-              parseInt(
-                counter.dataset.target ||
-                '0',
-                10
-              );
-
-
-            let current = 0;
-
-
-            const increment =
-              Math.max(
-                1,
-                Math.ceil(
-                  target / 100
-                )
-              );
-
-
-            const timer =
-              setInterval(
-                () => {
-
-                  current +=
-                    increment;
-
-
-                  if (
-                    current >= target
-                  ) {
-
-                    current = target;
-
-                    clearInterval(
-                      timer
-                    );
-
-                  }
-
-
-                  counter.textContent =
-                    current.toLocaleString();
-
-                },
-                20
-              );
-
-          }
-        );
-
-
-        /* =========================
-           FAQ ACCORDION
-        ========================= */
-
-        document
-          .querySelectorAll(
-            '.faq-toggle'
-          )
-          .forEach(
-            toggle => {
-
-              toggle.addEventListener(
-                'click',
-                () => {
-
-                  const item =
-                    toggle.closest(
-                      '.faq-item'
-                    );
-
-
-                  const content =
-                    item.querySelector(
-                      '.faq-content'
-                    );
-
-
-                  const icon =
-                    item.querySelector(
-                      '.faq-icon'
-                    );
-
-
-                  const wasOpen =
-                    !content.classList.contains(
-                      'hidden'
-                    );
-
-
-                  document
-                    .querySelectorAll(
-                      '.faq-content'
-                    )
-                    .forEach(
-                      c =>
-                        c.classList.add(
-                          'hidden'
-                        )
-                    );
-
-
-                  document
-                    .querySelectorAll(
-                      '.faq-icon'
-                    )
-                    .forEach(
-                      i =>
-                        i.textContent = '+'
-                    );
-
-
-                  if (!wasOpen) {
-
-                    content.classList.remove(
-                      'hidden'
-                    );
-
-                    icon.textContent = '×';
-
-                  }
-
-                }
-              );
-
-            }
-          );
-
+  });
+});
+
+/* MOBILE MENU */
+const menuButton = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuButton.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded',String(open));
+  menuButton.setAttribute('aria-label',open ? 'Close menu' : 'Open menu');
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuButton.setAttribute('aria-expanded','false');
+    menuButton.setAttribute('aria-label','Open menu');
+  });
+});
+
+/* SCROLL REVEAL AND COPYRIGHT YEAR */
+const revealItems = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
       }
-    );
+    });
+  },{threshold:.12});
 
-  </script>
+  revealItems.forEach(item => observer.observe(item));
+} else {
+  revealItems.forEach(item => item.classList.add('is-visible'));
+}
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
